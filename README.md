@@ -104,5 +104,5 @@ el usuario conel cual se ingresó.
 # AUTORES : GRUPO 2
 - María Jesús Fernández Cortez [@JesuFertez](https://github.com/JesuFertez)
 - Fabián Collao Medina [@FabianCollao](https://github.com/FabianCollao)
-- Marlene Elizabeth Castro Pino [@LelenElizabeth](https://github.com/LelenElizabeth)https://github.com/LelenElizabeth
-- Omar Sepúlveda [@OmarSepulveda1](https://github.com/OmarSepulveda1)https://github.com/OmarSepulveda1
+- Marlene Elizabeth Castro Pino [@LelenElizabeth](https://github.com/LelenElizabeth)
+- Omar Sepúlveda [@OmarSepulveda1](https://github.com/OmarSepulveda1)
