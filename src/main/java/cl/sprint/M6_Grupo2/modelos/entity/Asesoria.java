@@ -1,15 +1,23 @@
 package cl.sprint.M6_Grupo2.modelos.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="asesorias")
 
 public class Asesoria {
+	@Column(name="id")
 	private int id;
 	private String nombre;
 	private String detalle;
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="profesional_id",referencedColumnName="id") Administrativo administrativo;
 	private int profesional_id;
 
 	public Asesoria() {

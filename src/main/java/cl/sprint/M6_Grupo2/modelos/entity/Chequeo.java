@@ -1,13 +1,19 @@
 package cl.sprint.M6_Grupo2.modelos.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="chequeos")
-
 public class Chequeo {
+	@Column(name="id")
 	private int id;
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="visita_id",referencedColumnName="id") Visita visita;
 	private int visita_id;
 	private String detalle;
 	private Estado estado;

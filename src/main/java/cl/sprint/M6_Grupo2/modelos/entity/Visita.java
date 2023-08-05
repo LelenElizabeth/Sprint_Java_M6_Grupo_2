@@ -2,13 +2,20 @@ package cl.sprint.M6_Grupo2.modelos.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="visitas")
 public class Visita {
+	@Column(name="id")
 	private int id;
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="cliente_id",referencedColumnName="id") Cliente cliente;
 	private int cliente_id;
 	private LocalDate fecha_visita;
 	private String detalle;
