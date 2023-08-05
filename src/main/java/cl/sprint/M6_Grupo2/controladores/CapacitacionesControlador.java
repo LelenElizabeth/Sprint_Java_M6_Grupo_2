@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import cl.grupo2.GrupalJpa.model.entity.Capacitacion;
-import cl.grupo2.GrupalJpa.model.service.CapacitacionesServicio;
+import cl.sprint.M6_Grupo2.modelos.entity.Capacitacion;
+import cl.sprint.M6_Grupo2.modelos.service.CapacitacionesServicio;
 
 
 @Controller

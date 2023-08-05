@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bean:beans xmlns:bean="http://www.springframework.org/schema/beans"
+	xmlns:xsi-="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/security"
+	xsi-:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						 http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<http auto-config="true">
+		<intercept-url pattern="/" access="permitAll" />
+		<intercept-url pattern="/ListarCapacitaciones"
+			access="hasAnyAuthority('Administrativo','Cliente')" />
+		<intercept-url pattern="/Contacto"
+			access="hasAnyAuthority('Cliente')" />
+		<intercept-url pattern="/api/**"
+			access="hasAnyAuthority('Administrativo')" />
+		<form-login login-page="/login"
+				authentication-failure-url="/error" 
+				username-parameter="usuario"
+				password-parameter="password"/>
+		<csrf disabled="true" />
+		<logout logout-success-url="/login" />
+	</http>
+
+	<authentication-manager>
+		<authentication-provider>
+			<password-encoder hash="bcrypt" />
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="SELECT nombre as usuario, contrasena as password, 1 as enabled from usuarios where nombre= ?"
+				authorities-by-username-query="SELECT nombre as usuario, rol as authority from usuarios where nombre= ?"/>
+			<!-- <user-service>
+				<user name="Admin" authorities="ADMIN"
+					password="$2a$10$JjF53QXqvUX08G9LPMBC8uJFQJHIg2eDEfrPhF1j4UAwIy2pXajOe" />
+				<user name="Cliente" authorities="CLIENTE"
+					password="$2a$10$xvF3SGtY./y5TsayR5q8v.kIMzbFFw1koxye1n5ZF/rod2i.FZfGS" />
+					
+			</user-service> -->
+			
+		</authentication-provider>
+	</authentication-manager>
+
+</bean:beans>
