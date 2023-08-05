@@ -2,29 +2,28 @@ package cl.sprint.M6_Grupo2.modelos.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="accidentes")
 
 public class Accidente {
-	
+	@Id
+	@Column(name="id")
 	private int id;
-	private int cliente_id;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="cliente_id",referencedColumnName="id",insertable = false, updatable = false) 	
+	private Cliente cliente;
 	private LocalDate fecha_accidente;
 	private String detalle;
 
 	public Accidente() {
-	}
-
-	public Accidente(int id, int cliente_id, LocalDate fecha_accidente, String detalle) {
-		super();
-		this.id = id;
-		this.cliente_id = cliente_id;
-		this.fecha_accidente = fecha_accidente;
-		this.detalle = detalle;
 	}
 
 	public int getId() {
@@ -35,12 +34,12 @@ public class Accidente {
 		this.id = id;
 	}
 
-	public int getCliente_id() {
-		return cliente_id;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setCliente_id(int cliente_id) {
-		this.cliente_id = cliente_id;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public LocalDate getFecha_accidente() {
@@ -61,8 +60,9 @@ public class Accidente {
 
 	@Override
 	public String toString() {
-		return "Accidente [id=" + id + ", cliente_id=" + cliente_id + ", fecha_accidente=" + fecha_accidente
-				+ ", detalle=" + detalle + "]";
+		return "Accidente [id=" + id + ", cliente=" + cliente + ", fecha_accidente=" + fecha_accidente + ", detalle="
+				+ detalle + "]";
 	}
+	
 
 }

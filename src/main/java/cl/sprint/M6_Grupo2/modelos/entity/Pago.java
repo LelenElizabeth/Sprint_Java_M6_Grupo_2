@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -12,23 +13,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name="pagos")
 public class Pago {
+	@Id
 	@Column(name="id")
 	private int id;
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="cliente_id", referencedColumnName="id") Cliente cliente;
-	private int cliente_id;
+	@JoinColumn(name="cliente_id", referencedColumnName="id",insertable = false, updatable = false) 
+	private Cliente cliente;
 	private float monto;
 	private LocalDate fecha_pago;
 
 	public Pago() {
-	}
-
-	public Pago(int id, int cliente_id, float monto, LocalDate fecha_pago) {
-		super();
-		this.id = id;
-		this.cliente_id = cliente_id;
-		this.monto = monto;
-		this.fecha_pago = fecha_pago;
 	}
 
 	public int getId() {
@@ -39,12 +33,12 @@ public class Pago {
 		this.id = id;
 	}
 
-	public int getCliente_id() {
-		return cliente_id;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setCliente_id(int cliente_id) {
-		this.cliente_id = cliente_id;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public float getMonto() {
@@ -65,8 +59,8 @@ public class Pago {
 
 	@Override
 	public String toString() {
-		return "Pago [id=" + id + ", cliente_id=" + cliente_id + ", monto=" + monto + ", fecha_pago=" + fecha_pago
-				+ "]";
+		return "Pago [id=" + id + ", cliente=" + cliente + ", monto=" + monto + ", fecha_pago=" + fecha_pago + "]";
 	}
+	
 
 }

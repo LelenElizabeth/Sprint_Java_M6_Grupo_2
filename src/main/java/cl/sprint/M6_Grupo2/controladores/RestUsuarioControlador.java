@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import cl.grupo2.GrupalJpa.model.entity.Usuario;
-import cl.grupo2.GrupalJpa.model.service.UsuarioServicio;
+import cl.sprint.M6_Grupo2.modelos.entity.Usuario;
+import cl.sprint.M6_Grupo2.modelos.service.UsuarioServicio;
+
+
 
 @RestController
 public class RestUsuarioControlador{

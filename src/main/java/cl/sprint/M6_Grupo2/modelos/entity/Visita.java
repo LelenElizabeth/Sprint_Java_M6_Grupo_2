@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -12,25 +13,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name="visitas")
 public class Visita {
+	@Id
 	@Column(name="id")
 	private int id;
 	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="cliente_id",referencedColumnName="id") Cliente cliente;
-	private int cliente_id;
+	@JoinColumn(name="cliente_id",referencedColumnName="id",insertable = false, updatable = false) 
+	private Cliente cliente;
 	private LocalDate fecha_visita;
 	private String detalle;
 	private int profesional_id;
 
 	public Visita() {
-	}
-
-	public Visita(int id, int cliente_id, LocalDate fecha_visita, String detalle, int profesional_id) {
-		super();
-		this.id = id;
-		this.cliente_id = cliente_id;
-		this.fecha_visita = fecha_visita;
-		this.detalle = detalle;
-		this.profesional_id = profesional_id;
 	}
 
 	public int getId() {
@@ -41,12 +34,12 @@ public class Visita {
 		this.id = id;
 	}
 
-	public int getCliente_id() {
-		return cliente_id;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setCliente_id(int cliente_id) {
-		this.cliente_id = cliente_id;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public LocalDate getFecha_visita() {
@@ -73,10 +66,5 @@ public class Visita {
 		this.profesional_id = profesional_id;
 	}
 
-	@Override
-	public String toString() {
-		return "Visita [id=" + id + ", cliente_id=" + cliente_id + ", fecha_visita=" + fecha_visita + ", detalle="
-				+ detalle + ", profesional_id=" + profesional_id + "]";
-	}
 
 }

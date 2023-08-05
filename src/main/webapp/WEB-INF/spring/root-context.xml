@@ -14,7 +14,7 @@
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/prevencion_riesgos" />
         <property name="username" value="root" />
-        <property name="password" value="root" />
+        <property name="password" value="" />
     </bean>
     <!-- Configuración de JPA -->
     <bean id="entityManagerFactory"
@@ -26,7 +26,7 @@
         </property>
         <property name="jpaProperties">
             <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="use_sql_comments">true</prop>
             </props>
@@ -38,5 +38,5 @@
     </bean>
     <context:component-scan base-package="cl.sprint.M6_Grupo2" />
     <tx:annotation-driven transaction-manager="transactionManager" />
-    <jpa:repositories base-package="cl.sprint.M6_Grupo2.repositorios" />
+    <jpa:repositories base-package="cl.sprint.M6_Grupo2.modelos.repository" />
 </beans>
