@@ -1,6 +1,5 @@
 package cl.sprint.M6_Grupo2.modelos.entity;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;

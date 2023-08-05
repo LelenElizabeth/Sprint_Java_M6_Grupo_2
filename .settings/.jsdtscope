@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+<<<<<<< HEAD
+<<<<<<< HEAD
 	<classpathentry excluding="**/node_modules/*|**/*.min.js|**/bower_components/*" kind="src" path="src/main/webapp"/>
+=======
+	<classpathentry kind="src" path="src/main/webapp"/>
+	<classpathentry excluding="**/node_modules/*|**/*.min.js|**/bower_components/*" kind="src" path="target/m2e-wtp/web-resources"/>
+>>>>>>> 208524a0349f179470ffdef657cd4f233ca55bf9
+=======
+	<classpathentry kind="src" path="src/main/webapp"/>
+	<classpathentry excluding="**/node_modules/*|**/*.min.js|**/bower_components/*" kind="src" path="target/m2e-wtp/web-resources"/>
+>>>>>>> 208524a0349f179470ffdef657cd4f233ca55bf9
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.WebProject">
 		<attributes>
