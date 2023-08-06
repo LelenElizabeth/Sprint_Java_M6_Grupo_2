@@ -45,7 +45,7 @@ public class CapacitacionesControlador {
 		Capacitacion capacitacion = new Capacitacion(nombre,detalle,rutCliente,dia,hora,lugar,duracion,cantidadAsistentes);
 		cap.crearCapacitacion(capacitacion);
 		System.out.println(capacitacion);
-		return new ModelAndView("crear-capacitacion")
+		return new ModelAndView("crearCapacitacion")
 	            .addObject("mensaje", "La Capacitacion se ha agregado correctamente.")
 	            .addObject("mostrarAlert", true);
 	}
