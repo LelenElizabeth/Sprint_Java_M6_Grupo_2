@@ -38,9 +38,13 @@
 						<div class="card-body">
 							<form action="crear-pago" method="post">
 								<div class="mb-3">
-									<label for="cliente_id" class="form-label">ID Cliente:</label> <input
-										type="text" class="form-control" id="cliente_id" name="cliente_id"
-										required>
+								    <label for="cliente_id" class="form-label">Cliente:</label>
+								    <select class="form-control" id="cliente_id" name="cliente_id" required>
+								        <option value="" disabled selected>Selecciona un cliente</option>
+								        <c:forEach var="cliente" items="${clientes}">
+								            <option value="${cliente.id}">${cliente.nombre} (ID: ${cliente.id})</option>
+								        </c:forEach>
+								    </select>
 								</div>
 								<div class="mb-3">
 									<label for="monto" class="form-label">Monto:</label> <input
