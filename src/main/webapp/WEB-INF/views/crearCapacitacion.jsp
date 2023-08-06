@@ -22,8 +22,19 @@
 	<main class="flex-shrink-0">
 		<div
 			class="container d-flex justify-content-center align-items-center mt-4">
+			
+			
 			<!-- Formulario para crear capacitación -->
 			<div class="card" style="width: 50%;">
+			<!-- Agregar la variable booleana  -->
+			<c:set var="mostrarAlert" value="${mostrarAlert}" />
+			<c:set var="mensaje" value="${mensaje}" />
+
+			<!-- Utilizar la etiqueta 'c:if' para mostrar el alert solo cuando 'mostrarAlert' sea verdadero -->
+			<c:if test="${mostrarAlert}">
+				<div class="alert alert-info" style="text-align: center"
+					role="alert">${mensaje}</div>
+			</c:if>
 				<div class="card-header bg-dark text-white">
 					<h2 class="card-title d-flex justify-content-center">Crear
 						Capacitación</h2>
