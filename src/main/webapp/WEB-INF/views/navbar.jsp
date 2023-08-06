@@ -40,29 +40,26 @@
 					</sec:authorize>
 					 
 					<sec:authorize access="hasAuthority('Administrativo')">
-						<li class="nav-item dropdown ms-2">
-							<a
-								class="nav-link dropdown-toggle ${navItem == 'Crear' ? 'active' : ''}"
-								id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-								href="#"> <i class="bi bi-plus-circle"></i> Crear
-							</a>
-							<ul class="dropdown-menu bg-dark">
-	
-								<li><a class="dropdown-item" href="crear-capacitacion"> <i
-										class="bi bi-file-plus"></i> Crear Capacitación
-								</a></li>
-								<li>
-									<a class="dropdown-item disabled" href="CrearUsuario"> <i
-										class="bi bi-file-plus"></i> Crear Usuario
-									</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="crear-pago"> <i
-										class="bi bi-file-plus"></i> Crear Pago
-									</a>
-								</li>
-							</ul>
-						</li>
+					    <!-- Menú para Administrativo -->
+					    <li class="nav-item dropdown ms-2">
+					        <a class="nav-link dropdown-toggle ${navItem == 'Crear' ? 'active' : ''}"
+					           id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#">
+					            <i class="bi bi-plus-circle"></i> Crear
+					        </a>
+					        <ul class="dropdown-menu bg-dark">
+					            <li><a class="dropdown-item" href="crear-capacitacion"> <i class="bi bi-file-plus"></i> Crear Capacitación</a></li>
+					            <li><a class="dropdown-item disabled" href="CrearUsuario"> <i class="bi bi-file-plus"></i> Crear Usuario</a></li>
+					            <li><a class="dropdown-item" href="crear-pago"> <i class="bi bi-file-plus"></i> Crear Pago</a></li>
+					        </ul>
+					    </li>
+					</sec:authorize>
+					<sec:authorize access="hasAuthority('Cliente')">
+					    <!-- Menú para Cliente -->
+					    <li class="nav-item ms-2">
+					        <a class="nav-link ${navItem == 'Crear' ? 'active' : ''}" href="crear-capacitacion">
+					            <i class="bi bi-file-plus"></i> Crear Capacitación
+					        </a>
+					    </li>
 					</sec:authorize>
 						<li class="nav-item dropdown ms-2">
 						    <sec:authorize access="hasAnyAuthority('Administrativo', 'Cliente')">

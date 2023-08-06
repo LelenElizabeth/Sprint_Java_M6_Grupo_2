@@ -12,8 +12,22 @@
 			access="hasAnyAuthority('Administrativo','Cliente')" />
 		<intercept-url pattern="/Contacto"
 			access="hasAnyAuthority('Cliente')" />
+			
+		<!--  URL'S de Administrativo -->
 		<intercept-url pattern="/api/**"
 			access="hasAnyAuthority('Administrativo')" />
+		<intercept-url pattern="/crear-pago"
+			access="hasAnyAuthority('Administrativo')" />
+		<intercept-url pattern="/lista-pagos"
+			access="hasAnyAuthority('Administrativo')" />
+		
+		<!-- Administrativo / Cliente -->
+		<intercept-url pattern="/ListarCapacitaciones"
+			access="hasAnyAuthority('Administrativo','Cliente')" />
+		<intercept-url pattern="/crear-capacitacion"
+			access="hasAnyAuthority('Administrativo','Cliente')" />
+			
+		<!-- Formulario login -->
 		<form-login login-page="/login"
 				authentication-failure-url="/error" 
 				username-parameter="usuario"
