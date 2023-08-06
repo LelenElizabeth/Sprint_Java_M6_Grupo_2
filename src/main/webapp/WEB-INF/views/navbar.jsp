@@ -40,25 +40,27 @@
 					</sec:authorize>
 					 
 					<sec:authorize access="hasAuthority('Administrativo')">
-					<li class="nav-item dropdown ms-2">
-					<a
-						class="nav-link dropdown-toggle disabled ${navItem == 'Crear' ? 'active' : ''}"
-						id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-						href="#"> <i class="bi bi-plus-circle"></i> Crear
-					</a>
-						<ul class="dropdown-menu bg-dark">
-
-							<li><a class="dropdown-item" href="CrearCapacitacion"> <i
-									class="bi bi-file-plus"></i> Crear Capacitación
-							</a></li>
-							<li>
-								<a class="dropdown-item" href="CrearUsuario"> <i
-									class="bi bi-file-plus"></i> Crear Usuario
-								</a>
-							</li>
-						</ul>
-						</li>
-						</sec:authorize>
+					    <!-- Menú para Administrativo -->
+					    <li class="nav-item dropdown ms-2">
+					        <a class="nav-link dropdown-toggle ${navItem == 'Crear' ? 'active' : ''}"
+					           id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#">
+					            <i class="bi bi-plus-circle"></i> Crear
+					        </a>
+					        <ul class="dropdown-menu bg-dark">
+					            <li><a class="dropdown-item" href="crear-capacitacion"> <i class="bi bi-file-plus"></i> Crear Capacitación</a></li>
+					            <li><a class="dropdown-item disabled" href="CrearUsuario"> <i class="bi bi-file-plus"></i> Crear Usuario</a></li>
+					            <li><a class="dropdown-item" href="crear-pago"> <i class="bi bi-file-plus"></i> Crear Pago</a></li>
+					        </ul>
+					    </li>
+					</sec:authorize>
+					<sec:authorize access="hasAuthority('Cliente')">
+					    <!-- Menú para Cliente -->
+					    <li class="nav-item ms-2">
+					        <a class="nav-link ${navItem == 'Crear' ? 'active' : ''}" href="crear-capacitacion">
+					            <i class="bi bi-file-plus"></i> Crear Capacitación
+					        </a>
+					    </li>
+					</sec:authorize>
 						<li class="nav-item dropdown ms-2">
 						    <sec:authorize access="hasAnyAuthority('Administrativo', 'Cliente')">
 						        <a class="nav-link dropdown-toggle ${navItem == 'Listar' ? 'active' : ''}"
@@ -78,6 +80,13 @@
 						            <li>
 						                <a class="dropdown-item disabled" href="ListadoUsuarios">
 						                    <i class="bi bi-people"></i>  Listar Usuarios
+						                </a>
+						            </li>
+						        </sec:authorize>
+						   		 <sec:authorize access="hasAnyAuthority('Administrativo')">
+						            <li>
+						                <a class="dropdown-item" href="lista-pagos">
+						                    <i class="bi bi-credit-card"></i>  Listar Pagos
 						                </a>
 						            </li>
 						        </sec:authorize>
