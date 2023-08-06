@@ -1,6 +1,6 @@
 package cl.sprint.M6_Grupo2.modelos.entity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,12 +17,20 @@ public class Pago {
 	@Column(name="id")
 	private int id;
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="cliente_id", referencedColumnName="id",insertable = false, updatable = false) 
+	@JoinColumn(name="cliente_id", referencedColumnName="id") 
 	private Cliente cliente;
 	private float monto;
-	private LocalDate fecha_pago;
+	@Column(name="fecha_pago")
+	private LocalDateTime fechaPago;
 
 	public Pago() {
+	}
+	
+	public Pago( Cliente cliente, float monto, LocalDateTime fechaPago) {
+		super();
+		this.cliente = cliente;
+		this.monto = monto;
+		this.fechaPago = fechaPago;
 	}
 
 	public int getId() {
@@ -49,17 +57,17 @@ public class Pago {
 		this.monto = monto;
 	}
 
-	public LocalDate getFecha_pago() {
-		return fecha_pago;
+	public LocalDateTime getFechaPago() {
+		return fechaPago;
 	}
 
-	public void setFecha_pago(LocalDate fecha_pago) {
-		this.fecha_pago = fecha_pago;
+	public void setFechaPago(LocalDateTime fechaPago) {
+		this.fechaPago = fechaPago;
 	}
 
 	@Override
 	public String toString() {
-		return "Pago [id=" + id + ", cliente=" + cliente + ", monto=" + monto + ", fecha_pago=" + fecha_pago + "]";
+		return "Pago [id=" + id + ", cliente=" + cliente + ", monto=" + monto + ", fechaPago=" + fechaPago + "]";
 	}
 	
 

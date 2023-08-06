@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <!DOCTYPE html>
 <html class="h-100 translated-ltr">
 <head>
 <meta charset="ISO-8859-1">
-<title>Listado de Administrativos</title>
+<title>Lista de pagos</title>
 <!-- CSS del proyecto -->
 <link rel="stylesheet" href="../css/estilos.css">
 <!-- CSS Bootstrap -->
@@ -17,7 +19,7 @@
 	<!-- Incluyendo navbar menu -->
 	<c:set var="navItem" value="Listar" />
 	<!-- Menu activo -->
-	<c:set var="navText" value="Usuarios" />
+	<c:set var="navText" value="Pagos" />
 	<!-- Texto Listar -->
 	<%@ include file='navbar.jsp'%>
 
@@ -26,13 +28,13 @@
 		<div class="container mt-4">
 
 			<section>
-				<h1>Listado de Visitas</h1>
+				<h1>Listado de Pagos</h1>
 				<c:choose>
-					<c:when test="${empty listaAdmin}">
+					<c:when test="${empty listaPagos}">
 						<div class="alert alert-danger" style="text-align: center"
 							role="alert">
-							No hay registros de Administrativos. <a href="CrearUsuario"
-								class="alert-link">Ir a crear Usuario</a>
+							No hay registros de Pagos. <a href="crear-pago"
+								class="alert-link">Ir a crear un pago</a>
 						</div>
 					</c:when>
 					<c:otherwise>
@@ -49,7 +51,7 @@
 						<table class="table table-striped table-bordered">
 							<thead class="table-dark">
 								<tr>
-									<th>Id</th>
+									<th>ID</th>
 									<th>Cliente_ID</th>
 									<th>Monto</th>
 									<th>Fecha de pago</th>
@@ -57,13 +59,13 @@
 							</thead>
 							<tbody>
 								<!-- Ciclo forEach con JSTL para imprimir datos de la lista -->
-								<c:forEach var="usu" items="${listaAdmin}">
+								<c:forEach var="pago" items="${listaPagos}">
 									<tr>
-										<td><c:out value="${usu.id}"></c:out></td>
-										<td><c:out value="${usu.nombre}"></c:out></td>
-										<td><c:out value="${usu.nombreAdmin}"></c:out></td>
-										<td><c:out value="${usu.area}"></c:out></td>
-										<td><c:out value="${usu.experienciaPrevia}"></c:out></td>
+										<td><c:out value="${pago.id}"></c:out></td>
+										<td><c:out value="${pago.getCliente().getId()}"></c:out></td>
+						                <td><fmt:formatNumber type="currency" value="${pago.monto}" currencySymbol="$" /></td>
+						                <td>${pago.fechaPago.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))}</td>
+            
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -73,7 +75,6 @@
 			</section>
 		</div>
 	</main>
-	<%@ include file='footer.jsp'%>	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 		crossorigin="anonymous"></script>
