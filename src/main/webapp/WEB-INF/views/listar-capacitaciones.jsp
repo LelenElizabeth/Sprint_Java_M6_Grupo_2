@@ -30,6 +30,15 @@
 
 			<section>
 				<h1>Listado de Capacitaciones</h1>
+				<!-- Agregar la variable booleana  -->
+				<c:set var="mostrarAlert" value="${mostrarAlert}" />
+				<c:set var="mensaje" value="${mensaje}" />
+
+				<!-- Utilizar la etiqueta 'c:if' para mostrar el alert solo cuando 'mostrarAlert' sea verdadero -->
+				<c:if test="${mostrarAlert}">
+					<div class="alert alert-info" style="text-align: center"
+						role="alert">${mensaje}</div>
+				</c:if>
 				<c:choose>
 					<c:when test="${empty listaCapacitacion}">
 						<div class="alert alert-danger" style="text-align: center"

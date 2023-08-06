@@ -29,7 +29,7 @@
 						Capacitación</h2>
 				</div>
 				<div class="card-body">
-					<form action="CrearCapacitacion" class="row" method="post">
+					<form action="crear-capacitacion" class="row" method="post">
 						<div class="col-md-6 mb-2">
 							<label for="nombre" class="form-label">Nombre
 								Capacitación</label> <input type="text" class="form-control"
