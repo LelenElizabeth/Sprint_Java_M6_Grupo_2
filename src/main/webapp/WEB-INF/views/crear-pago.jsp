@@ -42,7 +42,7 @@
 								    <select class="form-control" id="cliente_id" name="cliente_id" required>
 								        <option value="" disabled selected>Selecciona un cliente</option>
 								        <c:forEach var="cliente" items="${clientes}">
-								            <option value="${cliente.id}">${cliente.nombre} (ID: ${cliente.id})</option>
+								            <option value="${cliente.id}">${cliente.nombres} (ID: ${cliente.id})</option>
 								        </c:forEach>
 								    </select>
 								</div>

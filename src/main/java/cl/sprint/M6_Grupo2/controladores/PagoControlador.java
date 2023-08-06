@@ -1,7 +1,5 @@
 package cl.sprint.M6_Grupo2.controladores;
 
-import java.sql.Date;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -32,7 +30,10 @@ public class PagoControlador {
 	public ModelAndView listarPago() {
 		ArrayList<Pago> listaPago = new ArrayList<>();
 		listaPago = pago.obtenerPagos();
-		
+		for (Pago pago : listaPago) {
+	        Cliente cliente = cliServ.obtenerCliente(pago.getCliente().getId()); 
+	        pago.setCliente(cliente);
+	    }
 		return new ModelAndView ("lista-pago-clientes","listaPagos",listaPago);
 	}
 	

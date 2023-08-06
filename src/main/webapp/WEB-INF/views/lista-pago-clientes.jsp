@@ -51,8 +51,8 @@
 						<table class="table table-striped table-bordered">
 							<thead class="table-dark">
 								<tr>
-									<th>ID</th>
-									<th>Cliente_ID</th>
+									<th>ID Pago</th>
+									<th>ID - Cliente</th>
 									<th>Monto</th>
 									<th>Fecha de pago</th>
 								</tr>
@@ -62,7 +62,11 @@
 								<c:forEach var="pago" items="${listaPagos}">
 									<tr>
 										<td><c:out value="${pago.id}"></c:out></td>
-										<td><c:out value="${pago.getCliente().getId()}"></c:out></td>
+										<td>
+											<c:out value="${pago.getCliente().getId()}"></c:out> - 
+											<c:out value="${pago.getCliente().getNombres()}"></c:out>
+											<c:out value="${pago.getCliente().getApellidos()}"></c:out>
+										</td>
 						                <td><fmt:formatNumber type="currency" value="${pago.monto}" currencySymbol="$" /></td>
 						                <td>${pago.fechaPago.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))}</td>
             
