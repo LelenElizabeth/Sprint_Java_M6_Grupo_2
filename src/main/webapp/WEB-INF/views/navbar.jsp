@@ -78,7 +78,7 @@
 						   		 </sec:authorize>
 						   		 <sec:authorize access="hasAnyAuthority('Administrativo')">
 						            <li>
-						                <a class="dropdown-item disabled" href="ListadoUsuarios">
+						                <a class="dropdown-item" href="ListadoUsuarios">
 						                    <i class="bi bi-people"></i>  Listar Usuarios
 						                </a>
 						            </li>

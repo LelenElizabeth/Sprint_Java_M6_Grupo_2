@@ -10,6 +10,8 @@
 		<intercept-url pattern="/" access="permitAll" />
 		<intercept-url pattern="/ListarCapacitaciones"
 			access="hasAnyAuthority('Administrativo','Cliente')" />
+			<intercept-url pattern="/ListadoUsuarios"
+			access="hasAnyAuthority('Administrativo')" />
 		<intercept-url pattern="/Contacto"
 			access="hasAnyAuthority('Cliente')" />
 			

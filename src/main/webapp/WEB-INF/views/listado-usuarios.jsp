@@ -61,7 +61,7 @@
 									<tr>
 										<td><c:out value="${usu.getId()}"></c:out></td>
 										<td><c:out value="${usu.getNombre()}"></c:out></td>
-										<td><c:out value="${usu.getTipo()}"></c:out></td>
+										<td><c:out value="${usu.getRol()}"></c:out></td>
 										<td>
 											<!-- Enviar el ID del usuario al servlet EditarUsuario al hacer clic en el botón "Editar" -->
 											<form action="Editar${usu.getTipo()}" method="get">
