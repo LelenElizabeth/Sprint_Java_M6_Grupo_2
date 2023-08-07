@@ -13,8 +13,8 @@
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/prevencion_riesgos" />
-        <property name="username" value="adminp" />
-        <property name="password" value="12345" />
+        <property name="username" value="root" />
+        <property name="password" value="" />
     </bean>
     <!-- Configuración de JPA -->
     <bean id="entityManagerFactory"
