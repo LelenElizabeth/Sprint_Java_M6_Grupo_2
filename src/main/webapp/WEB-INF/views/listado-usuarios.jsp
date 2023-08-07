@@ -28,7 +28,7 @@
 			<section>
 				<h1>Listado de Usuarios</h1>
 				<c:choose>
-					<c:when test="${empty listaUsuarios}">
+					<c:when test="${empty listarUsuarios}">
 						<div class="alert alert-danger" style="text-align: center"
 							role="alert">
 							No hay registros de Usuarios. <a href="CrearUsuario"
@@ -51,20 +51,20 @@
 								<tr>
 									<th>Id</th>
 									<th>Nombre</th>
-									<th>Tipo</th>
+									<th>Rol</th>
 									<th>Modificar</th>
 								</tr>
 							</thead>
 							<tbody>
 								<!-- Ciclo forEach con JSTL para imprimir datos de la lista -->
-								<c:forEach var="usu" items="${listaUsuarios}">
+								<c:forEach var="usu" items="${listarUsuarios}">
 									<tr>
 										<td><c:out value="${usu.getId()}"></c:out></td>
 										<td><c:out value="${usu.getNombre()}"></c:out></td>
 										<td><c:out value="${usu.getRol()}"></c:out></td>
 										<td>
 											<!-- Enviar el ID del usuario al servlet EditarUsuario al hacer clic en el botón "Editar" -->
-											<form action="Editar${usu.getTipo()}" method="get">
+											<form action="Editar${usu.getRol()}" method="get">
 												<input type="hidden" name="idRescatado"
 													value="${usu.getId()}">
 												<button type="submit" class="btn btn-outline-dark btn-sm">
