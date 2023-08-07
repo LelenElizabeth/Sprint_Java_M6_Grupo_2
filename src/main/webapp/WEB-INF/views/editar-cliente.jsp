@@ -30,7 +30,7 @@
 		<div class="card" style="width: 50%;">
 			<div class="card-header bg-dark text-white">
 			<c:set var="cliente" value="${cliente}" />
-				<h2 class="card-title d-flex justify-content-center">Modificar ${cliente.getTipo()}</h2>
+				<h2 class="card-title d-flex justify-content-center">Modificar ${cliente.getRol()}</h2>
 			</div>
 			
 			<div class="card-body">

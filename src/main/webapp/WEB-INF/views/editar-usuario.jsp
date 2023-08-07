@@ -30,10 +30,10 @@
 			<div class="card-header bg-dark text-white">
 				<c:set var="usuario" value="${usuario}" />
 				<h2 class="card-title d-flex justify-content-center">Modificar
-					${usuario.tipo}</h2>
+					${usuario.rol}</h2>
 			</div>
 			<div class="card-body">
-				<form action="Editar${usuario.tipo}" class="row" method="post">
+				<form action="Editar${usuario.rol}" class="row" method="post">
 					<div class="col-md-6 mb-3">
 						<label for="nombre" class="form-label">Nombre</label> <input
 							type="text" class="form-control" name="nombreUsuario"
@@ -44,19 +44,19 @@
 							type="text" class="form-control" name="contraseña" >
 					</div>
 					<div class="col-md-12 mb-3">
-						<label for="tipoLbl" class="form-label">Tipo</label> <select
+						<label for="tipoLbl" class="form-label">Rol</label> <select
 							class="form-control" name="tipo" required>
 							<option value="Cliente"
-								<c:if test="${'Cliente' eq usuario.tipo}">selected</c:if>>Cliente</option>
+								<c:if test="${'Cliente' eq usuario.rol}">selected</c:if>>Cliente</option>
 							<option value="Administrativo"
-								<c:if test="${'Administrativo' eq usuario.tipo}">selected</c:if>>Administrativo</option>
+								<c:if test="${'Administrativo' eq usuario.rol}">selected</c:if>>Administrativo</option>
 							<option value="Profesional"
-								<c:if test="${'Profesional' eq usuario.tipo}">selected</c:if>>Profesional</option>
+								<c:if test="${'Profesional' eq usuario.rol}">selected</c:if>>Profesional</option>
 						</select>
 					</div>
 
 					<c:choose>
-						<c:when test="${usuario.tipo eq 'Cliente'}">
+						<c:when test="${usuario.rol eq 'Cliente'}">
 							<h3>Datos del cliente</h3>
 							<div>
 								<label for="nombres" class="form-label">Nombres</label><input
@@ -88,7 +88,7 @@
 							</div>
 
 						</c:when>
-						<c:when test="${usuario.tipo eq 'Administrativo'}">
+						<c:when test="${usuario.rol eq 'Administrativo'}">
 							<h3>Datos del administrativo</h3>
 							<div>
 								<label for="nombre" class="form-label">Nombre</label><input
@@ -103,7 +103,7 @@
 									value="${usuario.experienciaPrevia}" type="text" class="form-control" name="experienciaPrevia" required>
 							</div>
 						</c:when>
-						<c:when test="${usuario.tipo eq 'Profesional'}">
+						<c:when test="${usuario.rol eq 'Profesional'}">
 							<h3>Datos del profesional</h3>
 							<div>
 								<label for="nombre" class="form-label">Nombre</label><input
