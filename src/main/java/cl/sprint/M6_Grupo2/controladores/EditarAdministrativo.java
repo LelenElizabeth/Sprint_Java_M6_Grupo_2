@@ -9,13 +9,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import cl.sprint.M6_Grupo2.modelos.entity.Administrativo;
+import cl.sprint.M6_Grupo2.modelos.entity.Usuario;
 import cl.sprint.M6_Grupo2.modelos.service.AdministrativoServicio;
+import cl.sprint.M6_Grupo2.modelos.service.UsuarioServicio;
 
 @Controller
 public class EditarAdministrativo {
 
     @Autowired
     private AdministrativoServicio adminServ;
+    
+    @Autowired
+    private UsuarioServicio usuServ;
 
     @RequestMapping(value = "/EditarAdministrativo")
     public ModelAndView mostrarAdmin(ModelMap model,
@@ -34,9 +39,16 @@ public class EditarAdministrativo {
             @RequestParam("nombre") String nombre,
             @RequestParam("area") String area,
             @RequestParam("experienciaPrevia") String experiencia) {
-        
+    	
+    	//Validar nombre de usuario o contraseña nulas
+    	Usuario usuPro =usuServ.obtenerUsuario(id);
+        if(nombreUsuario.trim() == null || nombreUsuario.trim() == "") {
+        	nombreUsuario = usuPro.getNombre();
+        }else if(contrasena.trim() == null|| contrasena.trim() == "") {
+        	contrasena= usuPro.getContraseña();
+        }
        Administrativo admin = new Administrativo(id, nombreUsuario, contrasena,nombre,area,experiencia);
-      adminServ.actualizar(admin);
+       adminServ.actualizar(admin);
        return new ModelAndView("exito")
                .addObject("mensaje", "Usuario modificado correctamente");
              
