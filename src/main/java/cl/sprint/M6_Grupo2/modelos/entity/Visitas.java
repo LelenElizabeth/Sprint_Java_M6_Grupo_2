@@ -2,6 +2,7 @@ package cl.sprint.M6_Grupo2.modelos.entity;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,6 +26,7 @@ public class Visitas {
 	private LocalDateTime fecha_hora;
 	private String lugar;
 	private String comentarios;
+  
 	//@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "profesional_id", referencedColumnName = "id")
 	int profesional_id;
