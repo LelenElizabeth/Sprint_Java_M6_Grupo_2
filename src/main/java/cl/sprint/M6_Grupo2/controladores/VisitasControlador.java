@@ -55,25 +55,23 @@ public class VisitasControlador {
 
 	@RequestMapping(value="crear-visita",method = RequestMethod.POST)
 	public ModelAndView crearVisita(
-			@RequestParam("cliente_id") int cliente_id,
+			@RequestParam("cliente_rut") int cliente_rut,
 			@RequestParam("profesional_id") int profesional_id,
 			@RequestParam("fecha")String fecha,
 			@RequestParam("lugar") String lugar,
 			@RequestParam("comentarios")String comentarios){
-		
 		Profesional profesional = prof.obtenerProfesional(profesional_id);
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         LocalDateTime fecha_hora = LocalDateTime.parse(fecha, formatter);
-        Cliente cliente = cliServ.obtenerCliente(cliente_id);
-        
+        Cliente cliente = cliServ.obtenerClientePorRut(cliente_rut);
         
         Visitas visita= new Visitas(cliente,fecha_hora,lugar,comentarios, profesional);
 		vis.crearVisitas(visita);
         
         return new ModelAndView("crear-visita")
         		.addObject("mensaje","La visita se ha creado correctamente.")
-        		.addObject("MostrarAlert", true);
+        		.addObject("mostrarAlert", true);
         		
 	}
 }

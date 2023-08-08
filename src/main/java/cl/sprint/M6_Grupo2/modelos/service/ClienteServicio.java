@@ -1,6 +1,7 @@
 package cl.sprint.M6_Grupo2.modelos.service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,10 @@ public class ClienteServicio {
 	public Cliente obtenerCliente(int id) {
 		return cliRepo.findById(id).get();
 	}
-	
+	public Cliente obtenerClientePorRut(int rut) {
+        Optional<Cliente> clienteOptional = cliRepo.findByRut(rut);
+        return clienteOptional.orElse(null); 
+    }
 	public void crearCliente(Cliente cli) {
 		cliRepo.save(cli);
 	}

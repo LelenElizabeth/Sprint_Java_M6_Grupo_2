@@ -121,8 +121,13 @@
 										type="text" class="form-control" name="titulo" required>
 								</div>
 								<div class="col-md-4 mb-3">
-									<label for="fechaIngreso" class="form-label">Fecha de ingreso</label><input
-										type="text" class="form-control" name="fechaIngreso" >
+									<label for="fechaIngreso" class="form-label">Fecha de ingreso</label>
+									<div class="input-group date" id="datetimepicker" data-target-input="nearest">
+							            <input type="text" class="form-control datetimepicker-input" name="fechaIngreso" data-target="#datetimepicker" />
+							            <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
+							                <div class="input-group-text"><i class="bi bi-calendar"></i></div>
+							            </div>
+							        </div>
 								</div>
 				        	</div>
 				        </div>
@@ -142,6 +147,21 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 		crossorigin="anonymous"></script>
+	<!-- Dependencas de Bootstrap para el DateTimePicker -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js"></script>
+	
+	<script>
+    // Inicializa el DateTimePicker
+	    $(function () {
+	        $('#datetimepicker').datetimepicker({
+	            format: 'DD/MM/YYYY', // Formato de fecha y hora
+	        });
+	    });
+	</script>
 		
 </body>
 </html>

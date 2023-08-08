@@ -57,56 +57,64 @@
 					</sec:authorize>
 					<sec:authorize access="hasAuthority('Cliente')">
 					    <!-- Menú para Cliente -->
-					    <li class="nav-item ms-2">
-					        <a class="nav-link ${navItem == 'Crear' ? 'active' : ''}" href="crear-capacitacion">
-					            <i class="bi bi-file-plus"></i> Crear Capacitación
+						    <li class="nav-item ms-2">
+						        <a class="nav-link" href="crear-capacitacion">
+						            <i class="bi bi-file-plus"></i> Crear Capacitación
+						        </a>
+						    </li>
+						    <li class="nav-item ms-2">
+						        <a class="nav-link" href="ListarCapacitaciones">
+						            <i class="bi bi-files"></i> Listar Capacitaciones
+						        </a>
+						    </li>
+					</sec:authorize>
+					<sec:authorize access="hasAuthority('Profesional')">
+					    <!-- Menú para Profesional -->
+						    <li class="nav-link  ms-2">
+						        <a class="dropdown-item" href="crear-visita"> <i class="bi bi-file-plus"></i> Crear Visita</a>
+						    </li>
+						    <li class="nav-link ms-2">
+						        <a class="dropdown-item" href="ListadoVisitas"><i class="bi bi-list-check"></i> Listado Visitas</a>
+						    </li>
+					</sec:authorize>
+					<!-- Menu Listar del Administrativo -->
+					<sec:authorize access="hasAnyAuthority('Administrativo')">
+					    <li class="nav-item dropdown ms-2">
+					        <a class="nav-link dropdown-toggle ${navItem == 'Listar' ? 'active' : ''}"
+					           id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#">
+					           <i class="bi bi-card-list"></i> Listar
 					        </a>
+					        <ul class="dropdown-menu bg-dark">
+					            <li>
+					                <a class="dropdown-item" href="ListarCapacitaciones">
+					                    <i class="bi bi-files"></i> Listar Capacitaciones
+					                </a>
+					            </li>
+					            <li>
+					                <a class="dropdown-item" href="ListadoUsuarios">
+					                    <i class="bi bi-people"></i> Listar Usuarios
+					                </a>
+					            </li>
+					            <li>
+					                <a class="dropdown-item" href="lista-pagos">
+					                    <i class="bi bi-credit-card"></i> Listar Pagos
+					                </a>
+					            </li>
+					            <li>
+					                <a class="dropdown-item" href="ListadoVisitas"> 
+					                    <i class="bi bi-list-check"></i> Listado Visitas
+					                </a>
+					            </li>
+					        </ul>
 					    </li>
 					</sec:authorize>
-						<li class="nav-item dropdown ms-2">
-						    <sec:authorize access="hasAnyAuthority('Administrativo', 'Cliente', 'Profesional')">
-						        <a class="nav-link dropdown-toggle ${navItem == 'Listar' ? 'active' : ''}"
-						           id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-						           href="#"> <i class="bi bi-card-list"></i> Listar
-						        </a>
-						    </sec:authorize>
-						        <ul class="dropdown-menu bg-dark">
-						        <sec:authorize access="hasAnyAuthority('Administrativo', 'Cliente')">
-						            <li>
-						                <a class="dropdown-item" href="ListarCapacitaciones">
-						                    <i class="bi bi-files"></i> Listar Capacitaciones
-						                </a>
-						            </li>
-						   		 </sec:authorize>
-						   		 <sec:authorize access="hasAnyAuthority('Administrativo')">
-						            <li>
-						                <a class="dropdown-item" href="ListadoUsuarios">
-						                    <i class="bi bi-people"></i>  Listar Usuarios
-						                </a>
-						            </li>
-						        </sec:authorize>
-						   		 <sec:authorize access="hasAnyAuthority('Administrativo')">
-						            <li>
-						                <a class="dropdown-item" href="lista-pagos">
-						                    <i class="bi bi-credit-card"></i>  Listar Pagos
-						                </a>
-						            </li>
-						        </sec:authorize>
-								<sec:authorize access="hasAnyAuthority('Profesional','Administrativo')">
-									<li>
-										<a class="dropdown-item" href="ListadoVisitas"> 
-										  <i class="bi bi-list-check"></i> Listado Visitas
-									    </a>
-									</li>
-								</sec:authorize>
-						</ul>
+					<!-- Login si no ha iniciado sesión -->
+					<sec:authorize access="!isAuthenticated()">
+							<li class="nav-item flex-row flex-wrap text-light">
+						    	<a class="nav-link " href="login">
+							<i class="bi bi-box-arrow-in-left ms-2"></i> Login</a>
 						</li>
-						<sec:authorize access="!isAuthenticated()">
-								<li class="nav-item flex-row flex-wrap text-light">
-						    		<a class="nav-link " href="login">
-						    		<i class="bi bi-box-arrow-in-left ms-2"></i> Login</a>
-						    	</li>
-				    	</sec:authorize>
+					</sec:authorize>
 				</ul>
 				<sec:authorize access="isAuthenticated()">
 					<ul class="navbar-nav flex-row flex-wrap text-light">
