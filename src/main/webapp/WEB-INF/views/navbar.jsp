@@ -48,7 +48,7 @@
 					        </a>
 					        <ul class="dropdown-menu bg-dark">
 					            <li><a class="dropdown-item" href="crear-capacitacion"> <i class="bi bi-file-plus"></i> Crear Capacitación</a></li>
-					            <li><a class="dropdown-item disabled" href="CrearUsuario"> <i class="bi bi-file-plus"></i> Crear Usuario</a></li>
+					            <li><a class="dropdown-item" href="crear-usuario"> <i class="bi bi-file-plus"></i> Crear Usuario</a></li>
 					            <li><a class="dropdown-item" href="crear-pago"> <i class="bi bi-file-plus"></i> Crear Pago</a></li>
 					        </ul>
 					    </li>
