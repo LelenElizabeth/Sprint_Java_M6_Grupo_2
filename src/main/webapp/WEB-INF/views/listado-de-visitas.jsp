@@ -4,7 +4,7 @@
 <html class="h-100 translated-ltr">
 <head>
 <meta charset="ISO-8859-1">
-<title>Listado de Administrativos</title>
+<title>Listado de Visitas</title>
 <!-- CSS del proyecto -->
 <link rel="stylesheet" href="../css/estilos.css">
 <!-- CSS Bootstrap -->
@@ -17,7 +17,7 @@
 	<!-- Incluyendo navbar menu -->
 	<c:set var="navItem" value="Listar" />
 	<!-- Menu activo -->
-	<c:set var="navText" value="Usuarios" />
+	<c:set var="navText" value="Visitas" />
 	<!-- Texto Listar -->
 	<%@ include file='navbar.jsp'%>
 
@@ -28,11 +28,11 @@
 			<section>
 				<h1>Listado de Visitas</h1>
 				<c:choose>
-					<c:when test="${empty listaAdmin}">
+					<c:when test="${empty listaVisitas}">
 						<div class="alert alert-danger" style="text-align: center"
 							role="alert">
-							No hay registros de Administrativos. <a href="CrearUsuario"
-								class="alert-link">Ir a crear Usuario</a>
+							No hay registros de Visitas. <a href="CrearVisita"
+								class="alert-link">Ir a crear Visita</a>
 						</div>
 					</c:when>
 					<c:otherwise>
@@ -49,22 +49,24 @@
 						<table class="table table-striped table-bordered">
 							<thead class="table-dark">
 								<tr>
-									<th>Id</th>
-									<th>Cliente_ID</th>
-									<th>Fecha_Visita</th>
-									<th>Detalle</th>
+									<th>Rut Cliente</th>
+									<th>Fecha accidente</th>
+									<th>Hora</th>
+									<th>Lugar</th>
+									<th>Comentarios</th>
 									<th>Profesional_ID</th>
 								</tr>
 							</thead>
 							<tbody>
 								<!-- Ciclo forEach con JSTL para imprimir datos de la lista -->
-								<c:forEach var="usu" items="${listaAdmin}">
+								<c:forEach var="vis" items="${listaVisitas}">
 									<tr>
-										<td><c:out value="${usu.id}"></c:out></td>
-										<td><c:out value="${usu.nombre}"></c:out></td>
-										<td><c:out value="${usu.nombreAdmin}"></c:out></td>
-										<td><c:out value="${usu.area}"></c:out></td>
-										<td><c:out value="${usu.experienciaPrevia}"></c:out></td>
+										<td><c:out value="${vis.getRut_cliente()}"></c:out></td>
+										<td><c:out value="${vis.getFecha_visita()}"></c:out></td>
+										<td><c:out value="${vis.getHora()}"></c:out></td>
+										<td><c:out value="${vis.getLugar()}"></c:out></td>
+										<td><c:out value="${vis.getComentarios()}"></c:out></td>
+										<td><c:out value="${vis.getProfesional_id()}"></c:out></td>
 									</tr>
 								</c:forEach>
 							</tbody>

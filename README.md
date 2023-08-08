@@ -101,6 +101,9 @@ definidoslostres perfiles que indica la plataforma, y aplicar losfiltros de acce
 el usuario conel cual se ingresó.
 
 
+# Cambios generales
+- Se ajusta BD de visitas para cumplir con el requerimiento.
+
 # AUTORES : GRUPO 2
 - María Jesús Fernández Cortez [@JesuFertez](https://github.com/JesuFertez)
 - Fabián Collao Medina [@FabianCollao](https://github.com/FabianCollao)

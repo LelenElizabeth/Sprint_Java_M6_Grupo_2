@@ -16,7 +16,7 @@ public class Chequeo {
 	private int id;
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="visita_id",referencedColumnName="id",insertable = false, updatable = false) 
-	private Visita visita;
+	private Visitas visitas;
 	private String detalle;
 	private Estado estado;
 
@@ -31,12 +31,12 @@ public class Chequeo {
 		this.id = id;
 	}
 
-	public Visita getVisita() {
-		return visita;
+	public Visitas getVisita() {
+		return visitas;
 	}
 
-	public void setVisita(Visita visita) {
-		this.visita = visita;
+	public void setVisita(Visitas visitas) {
+		this.visitas = visitas;
 	}
 
 	public String getDetalle() {
@@ -57,7 +57,7 @@ public class Chequeo {
 
 	@Override
 	public String toString() {
-		return "Chequeo [id=" + id + ", visita=" + visita + ", detalle=" + detalle + ", estado=" + estado + "]";
+		return "Chequeo [id=" + id + ", visita=" + visitas + ", detalle=" + detalle + ", estado=" + estado + "]";
 	}
 	
 }

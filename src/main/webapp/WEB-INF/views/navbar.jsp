@@ -62,7 +62,7 @@
 					    </li>
 					</sec:authorize>
 						<li class="nav-item dropdown ms-2">
-						    <sec:authorize access="hasAnyAuthority('Administrativo', 'Cliente')">
+						    <sec:authorize access="hasAnyAuthority('Administrativo', 'Cliente', 'Profesional')">
 						        <a class="nav-link dropdown-toggle ${navItem == 'Listar' ? 'active' : ''}"
 						           id="navbarDropdown" role="button" data-bs-toggle="dropdown"
 						           href="#"> <i class="bi bi-card-list"></i> Listar
@@ -90,7 +90,14 @@
 						                </a>
 						            </li>
 						        </sec:authorize>
-						        </ul>
+								<sec:authorize access="hasAnyAuthority('Profesional')">
+									<li>
+										<a class="dropdown-item" href="ListadoVisitas"> 
+										  <i class="bi bi-credit-card"></i> Listado Visitas
+									    </a>
+									</li>
+								</sec:authorize>
+						</ul>
 						</li>
 						<sec:authorize access="!isAuthenticated()">
 								<li class="nav-item flex-row flex-wrap text-light">
