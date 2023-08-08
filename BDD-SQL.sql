@@ -1,4 +1,3 @@
-DROP DATABASE IF EXISTS prevencion_riesgos;
 CREATE DATABASE  IF NOT EXISTS `prevencion_riesgos` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `prevencion_riesgos`;
 -- MySQL dump 10.13  Distrib 8.0.33, for macos13 (arm64)
@@ -43,6 +42,33 @@ CREATE TABLE `Accidentes` (
 LOCK TABLES `Accidentes` WRITE;
 /*!40000 ALTER TABLE `Accidentes` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Accidentes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Administrativo`
+--
+
+DROP TABLE IF EXISTS `Administrativo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Administrativo` (
+  `id` int(11) NOT NULL,
+  `nombre_a` varchar(50) DEFAULT NULL,
+  `area` varchar(50) DEFAULT NULL,
+  `experiencia_previa` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `administrativo_ibfk_1` FOREIGN KEY (`id`) REFERENCES `Usuarios` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Administrativo`
+--
+
+LOCK TABLES `Administrativo` WRITE;
+/*!40000 ALTER TABLE `Administrativo` DISABLE KEYS */;
+INSERT INTO `Administrativo` VALUES (4,'Pedro','Recursos Humanos','3 años'),(5,'Marta','Contabilidad','2 años'),(6,'Pablo','Administración','4 años'),(11,'María Fernández','Desarrollo','20 años'),(12,'María Fernández','Desarrollo','20 años');
+/*!40000 ALTER TABLE `Administrativo` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -108,7 +134,7 @@ DROP TABLE IF EXISTS `Capacitaciones`;
 CREATE TABLE `Capacitaciones` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
-  `detalle` varchar(120),
+  `detalle` varchar(120) DEFAULT NULL,
   `rut_cliente` int(11) DEFAULT NULL,
   `dia` varchar(11) DEFAULT NULL,
   `hora` varchar(6) DEFAULT NULL,
@@ -116,7 +142,7 @@ CREATE TABLE `Capacitaciones` (
   `duracion` varchar(70) DEFAULT NULL,
   `cantidad_asistentes` int(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,20 +151,7 @@ CREATE TABLE `Capacitaciones` (
 
 LOCK TABLES `Capacitaciones` WRITE;
 /*!40000 ALTER TABLE `Capacitaciones` DISABLE KEYS */;
-ALTER TABLE `Capacitaciones` AUTO_INCREMENT = 1;
-
-INSERT INTO `Capacitaciones` (`nombre`, `detalle`, `rut_cliente`, `dia`, `hora`, `lugar`, `duracion`, `cantidad_asistentes`) 
-VALUES 
-('Uso adecuado de extintores', 'Aprende a identificar los tipos de incendios y cómo utilizar extintores de manera segura.', 12345678, 'Lunes', '09:00', 'Sala de conferencias A', '2 horas', 30),
-('Elementos de seguridad en el trabajo', 'Conoce elementos de protección personal y cómo utilizarlos correctamente.', 11223344, 'Martes', '14:30', 'Salón de capacitaciones B', '1.5 horas', 25),
-('Charla informativa sobre normativas', 'Descubre normativas y regulaciones vigentes en seguridad laboral y cómo cumplirlas.', 55667788, 'Miércoles', '11:00', 'Auditorio principal', '1 hora', 50),
-('Prevención de riesgos en manejo químico', 'Identifica riesgos y medidas preventivas para manejo de sustancias químicas.', 87654321, 'Jueves', '15:30', 'Sala de conferencias C', '2 horas', 40),
-('Seguridad en altura y manejo de herramientas', 'Riesgos en trabajo en altura y uso seguro de herramientas, medidas de prevención.', 15975346, 'Sábado', '10:00', 'Salón de capacitaciones A', '1.5 horas', 20),
-('Primeros auxilios en el trabajo', 'Aprende primeros auxilios y cómo actuar en caso de accidentes o emergencias laborales.', 14736925, 'Domingo', '13:30', 'Auditorio principal', '1 hora', 60),
-('Ergonomía y prevención de lesiones', 'Mejora la ergonomía en tu lugar de trabajo para prevenir lesiones y promover entorno saludable.', 14367496, 'Viernes', '09:00', 'Sala de conferencias B', '2 horas', 35),
-('Seguridad eléctrica en el trabajo', 'Conoce peligros asociados a la electricidad y medidas de seguridad para evitar accidentes.', 12789832, 'Miércoles', '14:30', 'Salón de capacitaciones C', '1.5 horas', 30),
-('Manejo seguro de maquinaria', 'Aprende procedimientos seguros para manejo de maquinaria industrial y prevén riesgos.', 14796385, 'Lunes', '11:00', 'Auditorio principal', '1 hora', 45),
-('Prevención de caídas y protección', 'Prevención de caídas en el trabajo y uso adecuado de equipos de protección.', 98741236, 'Martes', '15:30', 'Sala de conferencias A', '2 horas', 25);
+INSERT INTO `Capacitaciones` VALUES (1,'Uso adecuado de extintores','Aprende a identificar los tipos de incendios y cómo utilizar extintores de manera segura.',12345678,'Lunes','09:00','Sala de conferencias A','2 horas',30),(2,'Elementos de seguridad en el trabajo','Conoce elementos de protección personal y cómo utilizarlos correctamente.',11223344,'Martes','14:30','Salón de capacitaciones B','1.5 horas',25),(3,'Charla informativa sobre normativas','Descubre normativas y regulaciones vigentes en seguridad laboral y cómo cumplirlas.',55667788,'Miércoles','11:00','Auditorio principal','1 hora',50),(4,'Prevención de riesgos en manejo químico','Identifica riesgos y medidas preventivas para manejo de sustancias químicas.',87654321,'Jueves','15:30','Sala de conferencias C','2 horas',40),(5,'Seguridad en altura y manejo de herramientas','Riesgos en trabajo en altura y uso seguro de herramientas, medidas de prevención.',15975346,'Sábado','10:00','Salón de capacitaciones A','1.5 horas',20),(6,'Primeros auxilios en el trabajo','Aprende primeros auxilios y cómo actuar en caso de accidentes o emergencias laborales.',14736925,'Domingo','13:30','Auditorio principal','1 hora',60),(7,'Ergonomía y prevención de lesiones','Mejora la ergonomía en tu lugar de trabajo para prevenir lesiones y promover entorno saludable.',14367496,'Viernes','09:00','Sala de conferencias B','2 horas',35),(8,'Seguridad eléctrica en el trabajo','Conoce peligros asociados a la electricidad y medidas de seguridad para evitar accidentes.',12789832,'Miércoles','14:30','Salón de capacitaciones C','1.5 horas',30),(9,'Manejo seguro de maquinaria','Aprende procedimientos seguros para manejo de maquinaria industrial y prevén riesgos.',14796385,'Lunes','11:00','Auditorio principal','1 hora',45),(10,'Prevención de caídas y protección','Prevención de caídas en el trabajo y uso adecuado de equipos de protección.',98741236,'Martes','15:30','Sala de conferencias A','2 horas',25);
 /*!40000 ALTER TABLE `Capacitaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,6 +183,38 @@ LOCK TABLES `Chequeos` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `Cliente`
+--
+
+DROP TABLE IF EXISTS `Cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Cliente` (
+  `id` int(11) NOT NULL,
+  `nombres` varchar(50) DEFAULT NULL,
+  `apellidos` varchar(50) DEFAULT NULL,
+  `telefono` int(11) DEFAULT NULL,
+  `direccion` varchar(100) DEFAULT NULL,
+  `comuna` varchar(50) DEFAULT NULL,
+  `edad` int(11) DEFAULT NULL,
+  `rut` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `rut_UNIQUE` (`rut`),
+  CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`id`) REFERENCES `Usuarios` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Cliente`
+--
+
+LOCK TABLES `Cliente` WRITE;
+/*!40000 ALTER TABLE `Cliente` DISABLE KEYS */;
+INSERT INTO `Cliente` VALUES (1,'Juan','Pérez',123456789,'Calle 123','Santiago',30,123456789),(2,'María','González',987654321,'Avenida 456','Valparaíso',25,987654321),(3,'Carlos','López',555555555,'Ruta 789','Concepción',40,345678901);
+/*!40000 ALTER TABLE `Cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Pagos`
 --
 
@@ -180,11 +225,11 @@ CREATE TABLE `Pagos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cliente_id` int(11) DEFAULT NULL,
   `monto` decimal(10,2) DEFAULT NULL,
-  `fecha_pago` timestamp,
+  `fecha_pago` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `cliente_id` (`cliente_id`),
   CONSTRAINT `pagos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `Usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,7 +238,35 @@ CREATE TABLE `Pagos` (
 
 LOCK TABLES `Pagos` WRITE;
 /*!40000 ALTER TABLE `Pagos` DISABLE KEYS */;
+INSERT INTO `Pagos` VALUES (1,1,245000.00,'2023-08-01 15:05:00');
 /*!40000 ALTER TABLE `Pagos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Profesional`
+--
+
+DROP TABLE IF EXISTS `Profesional`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Profesional` (
+  `id` int(11) NOT NULL,
+  `nombre_p` varchar(50) DEFAULT NULL,
+  `titulo` varchar(50) DEFAULT NULL,
+  `fecha_ingreso` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `profesional_ibfk_1` FOREIGN KEY (`id`) REFERENCES `Usuarios` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Profesional`
+--
+
+LOCK TABLES `Profesional` WRITE;
+/*!40000 ALTER TABLE `Profesional` DISABLE KEYS */;
+INSERT INTO `Profesional` VALUES (7,'Gabriel','Ingeniero','2021-05-10'),(8,'Natalia','Arquitecta','2020-02-15'),(9,'Martín','Contador','2019-08-20');
+/*!40000 ALTER TABLE `Profesional` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -209,86 +282,8 @@ CREATE TABLE `Usuarios` (
   `contrasena` varchar(100) NOT NULL,
   `rol` enum('Cliente','Administrativo','Profesional') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
-LOCK TABLES `Usuarios` WRITE;
-/*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
-ALTER TABLE `Usuarios` AUTO_INCREMENT = 1;
-
-INSERT INTO usuarios (`nombre`, `contrasena`, `rol`) VALUES
-('Juan', '$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K', 'Cliente'),
-('María', '$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K', 'Cliente'),
-('Carlos', '$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K', 'Cliente'),
-('Pedro', '$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K', 'Administrativo'),
-('Marta', '$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K', 'Administrativo'),
-('Pablo', '$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K', 'Administrativo'),
-('Gabriel', '$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K', 'Profesional'),
-('Natalia', '$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K', 'Profesional'),
-('Martín', '$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K', 'Profesional')
-;
-UNLOCK TABLES;
-
---
--- Table structure for table `Administrativo`
---
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE Administrativo (
-    id INT PRIMARY KEY,
-    nombre_a varchar(50),
-    area VARCHAR(50),
-    experiencia_previa VARCHAR(100),
-    FOREIGN KEY (id) REFERENCES Usuarios(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-INSERT INTO administrativo (`id`, `nombre_a`, `area`, `experiencia_previa`) VALUES
-(4, 'Pedro', 'Recursos Humanos', '3 años'),
-(5, 'Marta', 'Contabilidad', '2 años'),
-(6, 'Pablo', 'Administración', '4 años');
---
--- Table structure for table `Profesional`
---
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE Profesional (
-    id INT PRIMARY KEY,
-    nombre_p varchar(50),
-    titulo VARCHAR(50),
-    fecha_ingreso DATE,
-    FOREIGN KEY (id) REFERENCES Usuarios(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-INSERT INTO profesional (`id`, `nombre_p`, `titulo`, `fecha_ingreso`) VALUES
-(7, 'Gabriel', 'Ingeniero', '2021-05-10'),
-(8, 'Natalia', 'Arquitecta', '2020-02-15'),
-(9, 'Martín', 'Contador', '2019-08-20');
-
---
--- Table structure for table `Cliente`
---
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE Cliente (
-    id INT PRIMARY KEY,
-    nombres VARCHAR(50),
-    apellidos VARCHAR(50),
-    telefono INT,
-    direccion VARCHAR(100),
-    comuna VARCHAR(50),
-    edad INT,
-    rut INT,
-    FOREIGN KEY (id) REFERENCES Usuarios(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-
-INSERT INTO cliente (`id`, `nombres`, `apellidos`, `telefono`, `direccion`, `comuna`, `edad`, `rut`) VALUES
-(1, 'Juan', 'Pérez', '123456789', 'Calle 123', 'Santiago', 30, '123456789'),
-(2, 'María', 'González', '987654321', 'Avenida 456', 'Valparaíso', 25, '987654321'),
-(3, 'Carlos', 'López', '555555555', 'Ruta 789', 'Concepción', 40, '345678901');
 
 --
 -- Dumping data for table `Usuarios`
@@ -296,6 +291,7 @@ INSERT INTO cliente (`id`, `nombres`, `apellidos`, `telefono`, `direccion`, `com
 
 LOCK TABLES `Usuarios` WRITE;
 /*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
+INSERT INTO `Usuarios` VALUES (1,'Juan','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Cliente'),(2,'María','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Cliente'),(3,'Carlos','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Cliente'),(4,'Pedro','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Administrativo'),(5,'Marta','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Administrativo'),(6,'Pablo','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Administrativo'),(7,'Gabriel','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Profesional'),(8,'Natalia','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Profesional'),(9,'Martín','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Profesional'),(10,'Jesu','1234','Administrativo'),(11,'Jesu','$2a$10$Rd6qaIuxItkcDNWIeO0a8OKk2.5N8RW6Wt7Wo1HuJq/WWxU4bEyT2','Administrativo'),(12,'Jesu','$2a$10$BN83IoGbj54zfcQlM0xqbefki2.C3BDpmEUfcOHFLjYdi98zzNyR.','Administrativo');
 /*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -309,29 +305,25 @@ DROP TABLE IF EXISTS `Visitas`;
 CREATE TABLE `Visitas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `rut_cliente` int(11) DEFAULT NULL,
-  `fecha_visita` date DEFAULT NULL,
-  `hora` varchar(6) DEFAULT NULL,
+  `fecha_hora` datetime DEFAULT NULL,
   `lugar` text,
   `comentarios` text,
   `profesional_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `rut_cliente` (`rut_cliente`),
-  KEY `profesional_id` (`profesional_id`),
-  CONSTRAINT `visitas_ibfk_1` FOREIGN KEY (`rut_cliente`) REFERENCES `Clientes` (`rut`),
-  CONSTRAINT `visitas_ibfk_2` FOREIGN KEY (`profesional_id`) REFERENCES `Usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `visitas_ibfk_2_idx` (`profesional_id`),
+  KEY `visitas_ibfk_1_idx` (`rut_cliente`,`profesional_id`),
+  CONSTRAINT `fk_cliente` FOREIGN KEY (`rut_cliente`) REFERENCES `Cliente` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_prof` FOREIGN KEY (`profesional_id`) REFERENCES `Usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-INSERT INTO visitas (`rut_cliente`, `fecha_visita`, `hora`, `lugar`, `comentarios`, `profesional_id`) VALUES
-(123456789, '2022-05-10','15:30', 'Oficinas Presidente Riesco', 'Se acuerda visita en terreno proyecto en curso', '7'),
-(987654321, '2021-02-15', '16:30', 'Visita en terreno proyecto en curso', 'Preparar presentación con las observaciones para implementación', '8'),
-(345678901, '2020-08-20', '16:30', 'Oficina arquitecto Presidente Riesco' ,'Revisión contratos puntos 7a, 8b y 11b', '9');
 --
 -- Dumping data for table `Visitas`
 --
 
 LOCK TABLES `Visitas` WRITE;
 /*!40000 ALTER TABLE `Visitas` DISABLE KEYS */;
+INSERT INTO `Visitas` VALUES (1,123456789,'2022-05-10 00:00:00','Oficinas Presidente Riesco','Se acuerda visita en terreno proyecto en curso',7),(2,987654321,'2021-02-15 00:00:00','Visita en terreno proyecto en curso','Preparar presentación con las observaciones para implementación',8),(3,345678901,'2020-08-20 00:00:00','Oficina arquitecto Presidente Riesco','Revisión contratos puntos 7a, 8b y 11b',9),(13,123456789,'2023-08-02 14:00:00','jsank','janxjklas',7);
 /*!40000 ALTER TABLE `Visitas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -344,4 +336,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-06 20:31:17
+-- Dump completed on 2023-08-08 14:17:30

@@ -28,3 +28,7 @@ body {
   width: 100%;
   margin-top: auto; /* Empuja el footer hacia abajo, pero no m�s all� del final del contenido */
 }
+
+.label{
+	padding-bottom: 8px;
+}
