@@ -50,8 +50,7 @@
 							<thead class="table-dark">
 								<tr>
 									<th>Rut Cliente</th>
-									<th>Fecha accidente</th>
-									<th>Hora</th>
+									<th>Fecha y Hora</th>
 									<th>Lugar</th>
 									<th>Comentarios</th>
 									<th>Profesional_ID</th>
@@ -63,8 +62,7 @@
 								<c:forEach var="vis" items="${listaVisitas}">
 									<tr>
 										<td><c:out value="${vis.getRut_cliente()}"></c:out></td>
-										<td><c:out value="${vis.getFecha_visita()}"></c:out></td>
-										<td><c:out value="${vis.getHora()}"></c:out></td>
+										<td><c:out value="${vis.getFecha_hora()}"></c:out></td>
 										<td><c:out value="${vis.getLugar()}"></c:out></td>
 										<td><c:out value="${vis.getComentarios()}"></c:out></td>
 										<td><c:out value="${vis.getProfesional_id()}"></c:out></td>
