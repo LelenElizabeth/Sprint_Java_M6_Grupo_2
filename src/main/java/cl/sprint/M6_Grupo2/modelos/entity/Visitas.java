@@ -1,10 +1,13 @@
 package cl.sprint.M6_Grupo2.modelos.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import cl.sprint.M6_Grupo2.utils.ValidarDatos;
@@ -24,6 +27,8 @@ public class Visitas {
 	private String lugar;
 	private String comentarios;
 	private int profesional_id;
+	@OneToMany(mappedBy = "visitas", cascade = CascadeType.ALL)
+    private List<Chequeo> chequeos;
 	
 	public Visitas() {
 	}

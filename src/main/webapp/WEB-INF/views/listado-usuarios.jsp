@@ -45,14 +45,15 @@
 							<div class="alert alert-info" style="text-align: center"
 								role="alert">${mensaje}</div>
 						</c:if>
-
+							
 						<table class="table table-striped table-bordered">
 							<thead class="table-dark">
 								<tr>
 									<th>Id</th>
 									<th>Nombre</th>
 									<th>Rol</th>
-									<th>Modificar</th>
+									<th class="w-10">Modificar</th>
+									<th class="w-10">Eliminar</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -72,6 +73,12 @@
 												</button>
 											</form>
 										</td>
+										<!-- boton modal -->
+										<td>
+											<button type="button" class="btn btn-outline-danger btn-sm eliminar-usuario-btn" data-user-id="${usu.getId()}" data-bs-toggle="modal" data-bs-target="#eliminarModal">
+									        	<i class="bi bi-trash"></i> Eliminar
+											</button>
+										</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -80,11 +87,35 @@
 				</c:choose>
 			</section>
 		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="eliminarModal" tabindex="-1" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <h5 class="modal-title" id="eliminarModalLabel">Confirmar Eliminación</h5>
+		                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+		            </div>
+		            <div class="modal-body">
+		                ¿Estás seguro de que deseas eliminar este usuario?
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+		                <form id="eliminarUsuarioForm" action="EliminarUsuario" method="get">
+		                    <input type="hidden" name="idRescatado" value="">
+		                    <button type="submit" class="btn btn-danger">Eliminar</button>
+		                </form>
+		            </div>
+		        </div>
+		    </div>
+		</div>
 	</main>
 
 	<%@ include file='footer.jsp'%>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 		crossorigin="anonymous"></script>
+		<!-- Script propio de la vista -->
+	<script src="<c:url value="/res/js/modalEliminarUsuario.js" />">
+	</script>
 </body>
 </html>

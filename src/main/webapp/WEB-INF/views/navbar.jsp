@@ -115,7 +115,7 @@
 							</a>
 						    <ul class="dropdown-menu dropdown-menu-end bg-dark">
 						    	<li>
-						    		<a class="dropdown-item" href="logout">
+						    		<a class="dropdown-item"  role="button" data-bs-toggle="modal" data-bs-target="#logoutModal" href="#">
 						    		<i class="bi bi-box-arrow-right"></i>   Cerrar Sesión</a>
 						    	</li>
 						    </ul>
@@ -126,3 +126,21 @@
 		</div>
 	</nav>
 </header>
+<!-- Modal de Cerrar Sesión -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logoutModalLabel">Confirmar Cierre de Sesión <i class="bi bi-box-arrow-right"></i></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas cerrar sesión?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <a href="logout" class="btn btn-primary">Cerrar Sesión</a>
+            </div>
+        </div>
+    </div>
+</div>

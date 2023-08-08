@@ -2,14 +2,16 @@ package cl.sprint.M6_Grupo2.modelos.entity;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="profesional")
@@ -22,7 +24,10 @@ public class Profesional extends Usuario {
 	private String titulo;
 	@Column(name="fecha_ingreso")
 	private LocalDate fechaIngreso;
-
+	
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "profesional_id")
+    private List<Visitas> visitas = new ArrayList<>();
 	public Profesional() {
 	}
 
