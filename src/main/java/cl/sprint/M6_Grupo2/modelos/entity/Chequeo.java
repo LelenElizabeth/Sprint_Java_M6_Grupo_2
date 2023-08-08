@@ -2,10 +2,12 @@ package cl.sprint.M6_Grupo2.modelos.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,10 +16,11 @@ public class Chequeo {
 	@Id
 	@Column(name="id")
 	private int id;
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="visita_id",referencedColumnName="id",insertable = false, updatable = false) 
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="visita_id",referencedColumnName="id") 
 	private Visitas visitas;
 	private String detalle;
+	@Enumerated(EnumType.STRING)
 	private Estado estado;
 
 	public Chequeo() {

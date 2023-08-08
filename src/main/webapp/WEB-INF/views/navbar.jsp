@@ -90,10 +90,10 @@
 						                </a>
 						            </li>
 						        </sec:authorize>
-								<sec:authorize access="hasAnyAuthority('Profesional')">
+								<sec:authorize access="hasAnyAuthority('Profesional','Administrativo')">
 									<li>
 										<a class="dropdown-item" href="ListadoVisitas"> 
-										  <i class="bi bi-credit-card"></i> Listado Visitas
+										  <i class="bi bi-list-check"></i> Listado Visitas
 									    </a>
 									</li>
 								</sec:authorize>

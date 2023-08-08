@@ -42,6 +42,13 @@ public class Administrativo extends Usuario {
 		this.experienciaPrevia = experienciaPrevia;
 	}
 	
+	public Administrativo( String nombreUsuario,String contraseña,String nombreAdmin, String area, String experienciaPrevia) {
+		super( nombreUsuario,contraseña, RolUsuario.Administrativo);
+		this.nombreAdmin= nombreAdmin;
+		this.area = area;
+		this.experienciaPrevia = experienciaPrevia;
+	}
+	
 	
 	
 	public String getNombreAdmin() {

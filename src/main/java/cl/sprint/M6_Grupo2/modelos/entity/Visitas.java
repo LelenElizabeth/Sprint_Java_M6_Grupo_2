@@ -4,10 +4,7 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import cl.sprint.M6_Grupo2.utils.ValidarDatos;
@@ -27,7 +24,7 @@ public class Visitas {
 	private String lugar;
 	private String comentarios;
 	private int profesional_id;
-
+	
 	public Visitas() {
 	}
 	
@@ -36,7 +33,7 @@ public class Visitas {
 	public Visitas(int id, int rut_cliente, LocalDate fecha_visita, String hora, String lugar, String comentarios,
 			int profesional_id) {
 		super();
-		setid(id);
+		setId(id);
 		setRut_cliente(rut_cliente);
 		setFecha_visita(fecha_visita);
 		setHora(hora);
@@ -45,11 +42,11 @@ public class Visitas {
 		setProfesional_id(profesional_id);
 	}
 
-	public int getid() {
+	public int getId() {
 		return id;
 	}
 
-	public void setid(int id) {
+	public void setId(int id) {
 		if(ValidarDatos.esObligatorio(String.valueOf(id))) {
 		this.id = id;
 		}

@@ -55,6 +55,7 @@
 									<th>Lugar</th>
 									<th>Comentarios</th>
 									<th>Profesional_ID</th>
+									<th>Checklist</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -67,6 +68,17 @@
 										<td><c:out value="${vis.getLugar()}"></c:out></td>
 										<td><c:out value="${vis.getComentarios()}"></c:out></td>
 										<td><c:out value="${vis.getProfesional_id()}"></c:out></td>
+										<td>
+											<!-- Enviamos el id para visualizar los chequeos de la visita -->
+											<form action="responder-checklist" method="get">
+												<input type="hidden" name="visitaId"
+													value="${vis.getId()}">
+												<button type="submit" class="btn btn-outline-dark btn-sm">
+													<i class="bi bi-check2-square"></i> CheckList
+												</button>
+											</form>
+										</td>
+										
 									</tr>
 								</c:forEach>
 							</tbody>

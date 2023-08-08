@@ -7,13 +7,13 @@
 				<div
 					class="container d-flex justify-content-center align-items-center mt-4">
 					<ul class="social-icons mb-0">
-						<a href="#"><img src="img/facebook.png" alt="Facebook"
+						<a href="#"><img src="<c:url value="/res/img/facebook.png" />" alt="Facebook"
 							width="30" height="30"></a>
-						<a href="#"><img src="img/twitter.png" alt="Twitter"
+						<a href="#"><img src="<c:url value="/res/img/twitter.png" />" alt="Twitter"
 							width="30" height="30"></a>
-						<a href="#"><img src="img/instagram.png" alt="Instagram"
+						<a href="#"><img src="<c:url value="/res/img/instagram.png" />" alt="Instagram"
 							width="30" height="30"></a>
-						<a href="#"><img src="img/linkedin.png" alt="Linkedin"
+						<a href="#"><img src="<c:url value="/res/img/linkedin.png" />" alt="Linkedin"
 							width="30" height="30"></a>
 					</ul>
 				</div>
