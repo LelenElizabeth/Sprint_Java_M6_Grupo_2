@@ -23,12 +23,42 @@
 			access="hasAnyAuthority('Administrativo')" />
 		<intercept-url pattern="/lista-pagos"
 			access="hasAnyAuthority('Administrativo')" />
-		
-		<!-- Administrativo / Cliente -->
+		<intercept-url pattern="/CrearUsuario"
+			access="hasAnyAuthority('Administrativo')" />
+		<intercept-url pattern="/ListadoUsuarios"
+			access="hasAnyAuthority('Administrativo')" />
+		<intercept-url pattern="/EliminarUsuario"
+			access="hasAnyAuthority('Administrativo')" />
+		<intercept-url pattern="/crear-usuario"
+			access="hasAnyAuthority('Administrativo')" />
+		<intercept-url pattern="/crear-profesional"
+			access="hasAnyAuthority('Administrativo')" />
+		<intercept-url pattern="/crear-cliente"
+			access="hasAnyAuthority('Administrativo')" />
+		<intercept-url pattern="/crear-administrativo"
+			access="hasAnyAuthority('Administrativo')" />
+		<intercept-url pattern="/EditarAdministrativo"
+			access="hasAnyAuthority('Administrativo')" />
+		<intercept-url pattern="/EditarCliente"
+			access="hasAnyAuthority('Administrativo')" />
+		<intercept-url pattern="/EditarProfesional"
+			access="hasAnyAuthority('Administrativo')" />
+			
+		<!-- URL'S Administrativo / Cliente -->
 		<intercept-url pattern="/ListarCapacitaciones"
 			access="hasAnyAuthority('Administrativo','Cliente')" />
 		<intercept-url pattern="/crear-capacitacion"
 			access="hasAnyAuthority('Administrativo','Cliente')" />
+			
+		<!--URL'S Administrativo / Profesional -->
+		<intercept-url pattern="/ListadoVisitas"
+			access="hasAnyAuthority('Administrativo','Profesional')" />
+		<intercept-url pattern="/CrearVisita"
+			access="hasAnyAuthority('Administrativo','Profesional')" />
+		<intercept-url pattern="/responder-checklist"
+			access="hasAnyAuthority('Administrativo','Profesional')" />
+		<intercept-url pattern="/crear-chequeo"
+			access="hasAnyAuthority('Administrativo','Profesional')" />
 			
 		<!-- Formulario login -->
 		<form-login login-page="/login"

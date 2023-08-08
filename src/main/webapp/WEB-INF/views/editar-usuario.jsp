@@ -45,7 +45,7 @@
 					</div>
 					<div class="col-md-12 mb-3">
 						<label for="tipoLbl" class="form-label">Rol</label> <select
-							class="form-control" name="tipo" required>
+							class="form-control" name="tipo" disabled>
 							<option value="Cliente"
 								<c:if test="${'Cliente' eq usuario.rol}">selected</c:if>>Cliente</option>
 							<option value="Administrativo"
