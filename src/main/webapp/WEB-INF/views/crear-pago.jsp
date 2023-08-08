@@ -70,6 +70,7 @@
 			</div>
 		</div>
 	</main>
+	<%@ include file='footer.jsp'%>
 
 	<!-- JavaScript Bootstrap -->
 	<script
