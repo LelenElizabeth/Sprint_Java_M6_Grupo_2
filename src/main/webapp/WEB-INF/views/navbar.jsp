@@ -50,6 +50,8 @@
 					            <li><a class="dropdown-item" href="crear-capacitacion"> <i class="bi bi-file-plus"></i> Crear Capacitación</a></li>
 					            <li><a class="dropdown-item" href="crear-usuario"> <i class="bi bi-file-plus"></i> Crear Usuario</a></li>
 					            <li><a class="dropdown-item" href="crear-pago"> <i class="bi bi-file-plus"></i> Crear Pago</a></li>
+					            <li><a class="dropdown-item" href="crear-visita"> <i class="bi bi-file-plus"></i> Crear Visita</a></li>
+					            
 					        </ul>
 					    </li>
 					</sec:authorize>
