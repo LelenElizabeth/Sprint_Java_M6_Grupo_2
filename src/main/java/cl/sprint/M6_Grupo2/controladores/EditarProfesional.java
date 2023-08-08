@@ -13,13 +13,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import cl.sprint.M6_Grupo2.modelos.entity.Profesional;
+import cl.sprint.M6_Grupo2.modelos.entity.Usuario;
 import cl.sprint.M6_Grupo2.modelos.service.ProfesionalServicio;
+import cl.sprint.M6_Grupo2.modelos.service.UsuarioServicio;
 
 @Controller
 public class EditarProfesional {
 
     @Autowired
     private ProfesionalServicio proServ;
+    
+    @Autowired
+    private UsuarioServicio usuServ;
 
     @RequestMapping(value = "/EditarProfesional")
     public ModelAndView mostrarProf(ModelMap model,
@@ -37,14 +42,20 @@ public class EditarProfesional {
             @RequestParam("contraseña") String contrasena,
             @RequestParam("nombre") String nombre,
             @RequestParam("titulo") String titulo,
-            @RequestParam("fechaIngreso") LocalDate fecha) {
+            @RequestParam("fechaIngreso") String fecha) {
        
-        DateTimeFormatter formatoOriginal = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDate  fechaIngreso = LocalDate.parse(fecha.format(formatoOriginal));
+        DateTimeFormatter formatoOriginal = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate  fechaIngreso = LocalDate.parse(fecha,formatoOriginal);
         
-        
-
-        Profesional profesional = new Profesional(id, nombreUsuario, contrasena, nombre, titulo, fechaIngreso);
+        Usuario usuPro =usuServ.obtenerUsuario(id);
+        System.out.println(usuPro);
+        if(nombreUsuario.trim() == null || nombreUsuario.trim() == "") {
+        	nombreUsuario = usuPro.getNombre();
+        }else if(contrasena.trim() == null|| contrasena.trim() == "") {
+        	contrasena= usuPro.getContraseña();
+        }
+        System.out.println(nombreUsuario + contrasena);
+        Profesional profesional = new Profesional(id, nombreUsuario,contrasena , nombre, titulo, fechaIngreso);
         System.out.println(profesional);
         proServ.actualizar(profesional);
         return new ModelAndView("exito")

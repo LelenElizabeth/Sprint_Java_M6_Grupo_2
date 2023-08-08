@@ -9,13 +9,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import cl.sprint.M6_Grupo2.modelos.entity.Cliente;
+import cl.sprint.M6_Grupo2.modelos.entity.Usuario;
 import cl.sprint.M6_Grupo2.modelos.service.ClienteServicio;
+import cl.sprint.M6_Grupo2.modelos.service.UsuarioServicio;
 
 @Controller
 public class EditarCliente {
 
     @Autowired
     private ClienteServicio cliServ;
+    
+    @Autowired
+    private UsuarioServicio usuServ;
 
     @RequestMapping(value = "/EditarCliente")
     public ModelAndView mostrarCliente(ModelMap model,
@@ -38,7 +43,14 @@ public class EditarCliente {
             @RequestParam("comuna") String comuna,
             @RequestParam("edad") int edad,
             @RequestParam("rut") int rut) {
-        
+    	
+    	//Validar nombre de usuario o contraseña nulas
+    	Usuario usuPro =usuServ.obtenerUsuario(id);
+        if(nombreUsuario.trim() == null || nombreUsuario.trim() == "") {
+        	nombreUsuario = usuPro.getNombre();
+        }else if(contrasena.trim() == null|| contrasena.trim() == "") {
+        	contrasena= usuPro.getContraseña();
+        }
        Cliente cliente = new Cliente(id, nombreUsuario, contrasena, nombres, apellidos, telefono, direccion, comuna, edad, rut);
        cliServ.actualizar(cliente);
        return new ModelAndView("exito")
