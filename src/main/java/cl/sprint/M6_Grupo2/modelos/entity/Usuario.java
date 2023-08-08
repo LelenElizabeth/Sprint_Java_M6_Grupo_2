@@ -1,5 +1,8 @@
 package cl.sprint.M6_Grupo2.modelos.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,7 +30,9 @@ public class Usuario {
 	private String contraseña;
 	@Enumerated(EnumType.STRING)
 	private RolUsuario rol;
-	
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	private List<Pago> pagos;
+
 	public Usuario() {}
 	
 	public Usuario(int id) {

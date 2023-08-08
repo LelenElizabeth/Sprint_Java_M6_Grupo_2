@@ -47,7 +47,7 @@
 					<form action="crear-visita" class="row" method="post">
 						<div class="col-md-6 mb-3">
 							<label for="cliente_id" class="form-label">RUT Cliente:</label>
-							<select class="form-control" id="cliente_id" name="cliente_id" required>
+							<select class="form-control" id="cliente_id" name="cliente_rut" required>
 							<option value="" disabled selected>Selecciona Rut</option>
 							<c:forEach var="cliente" items="${listaClientes}">
 							<option value="${cliente.rut}">${cliente.nombres} (Rut:${cliente.rut})</option>
@@ -60,8 +60,7 @@
 							<select class="form-control" id="profesional_id" name="profesional_id" required>
 								<option value="" disabled selected>Selecciona un Profesional</option>
 								<c:forEach var="prof" items="${profesionales}">
-									<option value="${prof.id}">${prof.nombrePro} (ID:
-										${prof.id})</option>
+									<option value="${prof.id}">${prof.nombrePro} (ID:${prof.id})</option>
 								</c:forEach>
 							</select>
 						</div>

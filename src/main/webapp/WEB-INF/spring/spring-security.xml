@@ -53,7 +53,7 @@
 		<!--URL'S Administrativo / Profesional -->
 		<intercept-url pattern="/ListadoVisitas"
 			access="hasAnyAuthority('Administrativo','Profesional')" />
-		<intercept-url pattern="/CrearVisita"
+		<intercept-url pattern="/crear-visita"
 			access="hasAnyAuthority('Administrativo','Profesional')" />
 		<intercept-url pattern="/responder-checklist"
 			access="hasAnyAuthority('Administrativo','Profesional')" />

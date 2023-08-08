@@ -1,18 +1,19 @@
 package cl.sprint.M6_Grupo2.modelos.entity;
 
 
-import java.time.LocalDate;
+import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="cliente")
 @PrimaryKeyJoinColumn(name = "id")
-public class Cliente extends Usuario {
+public class Cliente extends Usuario  implements Serializable {
 	private String nombres;
 	private String apellidos;
 	private int telefono;
@@ -20,7 +21,9 @@ public class Cliente extends Usuario {
 	private String comuna;
 	private int edad;
 	private int rut;
-
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Visitas> visitas;
+	
 	public Cliente() {
 		super();
 	}
