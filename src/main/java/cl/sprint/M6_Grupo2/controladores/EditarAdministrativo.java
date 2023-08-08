@@ -1,6 +1,7 @@
 package cl.sprint.M6_Grupo2.controladores;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,9 @@ public class EditarAdministrativo {
     @Autowired
     private UsuarioServicio usuServ;
 
+	@Autowired
+    private PasswordEncoder passwordEncoder;
+	
     @RequestMapping(value = "/EditarAdministrativo")
     public ModelAndView mostrarAdmin(ModelMap model,
             @RequestParam("idRescatado")int id) {
@@ -44,8 +48,12 @@ public class EditarAdministrativo {
     	Usuario usuPro =usuServ.obtenerUsuario(id);
         if(nombreUsuario.trim() == null || nombreUsuario.trim() == "") {
         	nombreUsuario = usuPro.getNombre();
-        }else if(contrasena.trim() == null|| contrasena.trim() == "") {
+        }
+        	
+        if(contrasena.trim() == null|| contrasena.trim() == "") {
         	contrasena= usuPro.getContraseña();
+        }else {
+        	contrasena = passwordEncoder.encode(contrasena);
         }
        Administrativo admin = new Administrativo(id, nombreUsuario, contrasena,nombre,area,experiencia);
        adminServ.actualizar(admin);

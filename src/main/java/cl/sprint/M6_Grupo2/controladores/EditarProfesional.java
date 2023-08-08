@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +27,9 @@ public class EditarProfesional {
     @Autowired
     private UsuarioServicio usuServ;
 
+	@Autowired
+    private PasswordEncoder passwordEncoder;
+	
     @RequestMapping(value = "/EditarProfesional")
     public ModelAndView mostrarProf(ModelMap model,
             @RequestParam("idRescatado") int id) {
@@ -52,8 +56,11 @@ public class EditarProfesional {
         System.out.println(usuPro);
         if(nombreUsuario.trim() == null || nombreUsuario.trim() == "") {
         	nombreUsuario = usuPro.getNombre();
-        }else if(contrasena.trim() == null|| contrasena.trim() == "") {
+        }
+        if(contrasena.trim() == null|| contrasena.trim() == "") {
         	contrasena= usuPro.getContraseña();
+        }else {
+        	contrasena = passwordEncoder.encode(contrasena);
         }
         System.out.println(nombreUsuario + contrasena);
         Profesional profesional = new Profesional(id, nombreUsuario,contrasena , nombre, titulo, fechaIngreso);
