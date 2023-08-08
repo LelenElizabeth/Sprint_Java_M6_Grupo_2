@@ -49,6 +49,7 @@
 						<div class="col-md-12 mb-3">
 							<label for="tipoLbl" class="form-label">Tipo</label> <select
 								class="form-control" name="rol" id="rol" required>
+								<option value="" disabled selected>Seleccione un tipo</option>
 								<option value="Cliente">Cliente</option>
 								<option value="Administrativo">Administrativo</option>
 								<option value="Profesional">Profesional</option>

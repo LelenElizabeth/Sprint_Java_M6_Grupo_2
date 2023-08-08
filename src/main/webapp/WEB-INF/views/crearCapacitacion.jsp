@@ -93,7 +93,7 @@
 			</div>
 		</div>
 	</main>
-
+	<%@ include file='footer.jsp'%>
 	<!-- Script Validaciones del formulario -->
 	<script src="<c:url value="/res/js/formularioCapacitacion.js" />">
 		
