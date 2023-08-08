@@ -21,6 +21,11 @@ import cl.sprint.M6_Grupo2.modelos.service.UsuarioServicio;
 		@Autowired
 		private UsuarioServicio usu;
 		
+		@RequestMapping(path = "/CrearUsuario", method = RequestMethod.GET)
+	    public ModelAndView mostrarVista() {
+	        return new ModelAndView("crear-usuario");
+	    }
+		
 		@RequestMapping(value ="/ListadoUsuarios",method = RequestMethod.GET)
 		public ModelAndView listarUsuarios() {
 			ArrayList<Usuario> listarUsuarios = new ArrayList<>();

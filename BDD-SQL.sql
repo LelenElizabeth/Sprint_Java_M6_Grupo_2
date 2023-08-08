@@ -225,7 +225,8 @@ INSERT INTO usuarios (`nombre`, `contrasena`, `rol`) VALUES
 ('Pablo', '$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K', 'Administrativo'),
 ('Gabriel', '$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K', 'Profesional'),
 ('Natalia', '$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K', 'Profesional'),
-('Martín', '$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K', 'Profesional');
+('Martín', '$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K', 'Profesional')
+;
 UNLOCK TABLES;
 
 --
@@ -307,22 +308,27 @@ DROP TABLE IF EXISTS `Visitas`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Visitas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cliente_id` int(11) DEFAULT NULL,
+  `rut_cliente` int(11) DEFAULT NULL,
   `fecha_visita` date DEFAULT NULL,
-  `detalle` text,
+  `hora` varchar(6) DEFAULT NULL,
+  `lugar` text,
+  `comentarios` text,
   `profesional_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `cliente_id` (`cliente_id`),
+  KEY `rut_cliente` (`rut_cliente`),
   KEY `profesional_id` (`profesional_id`),
-  CONSTRAINT `visitas_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `Usuarios` (`id`),
+  CONSTRAINT `visitas_ibfk_1` FOREIGN KEY (`rut_cliente`) REFERENCES `Clientes` (`rut`),
   CONSTRAINT `visitas_ibfk_2` FOREIGN KEY (`profesional_id`) REFERENCES `Usuarios` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+INSERT INTO visitas (`rut_cliente`, `fecha_visita`, `hora`, `lugar`, `comentarios`, `profesional_id`) VALUES
+(123456789, '2022-05-10','15:30', 'Oficinas Presidente Riesco', 'Se acuerda visita en terreno proyecto en curso', '7'),
+(987654321, '2021-02-15', '16:30', 'Visita en terreno proyecto en curso', 'Preparar presentación con las observaciones para implementación', '8'),
+(345678901, '2020-08-20', '16:30', 'Oficina arquitecto Presidente Riesco' ,'Revisión contratos puntos 7a, 8b y 11b', '9');
 --
 -- Dumping data for table `Visitas`
 --
-
 
 LOCK TABLES `Visitas` WRITE;
 /*!40000 ALTER TABLE `Visitas` DISABLE KEYS */;

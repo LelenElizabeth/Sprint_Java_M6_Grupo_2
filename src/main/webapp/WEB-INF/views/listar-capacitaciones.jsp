@@ -63,6 +63,7 @@
 								</tr>
 							</thead>
 							<tbody>
+			 				<!-- Ciclo forEach con JSTL para imprimir datos de la lista -->		
 								<c:forEach var="cap" items="${listaCapacitacion}">
 									<tr>
 										<td><c:out value="${cap.getId()}"></c:out></td>
