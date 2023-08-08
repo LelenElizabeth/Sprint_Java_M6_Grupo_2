@@ -47,6 +47,7 @@ public class EditarProfesional {
         DateTimeFormatter formatoOriginal = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate  fechaIngreso = LocalDate.parse(fecha,formatoOriginal);
         
+        //Validando si nombreUsuario o contraseña son vacios
         Usuario usuPro =usuServ.obtenerUsuario(id);
         System.out.println(usuPro);
         if(nombreUsuario.trim() == null || nombreUsuario.trim() == "") {

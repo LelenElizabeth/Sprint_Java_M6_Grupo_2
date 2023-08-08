@@ -14,7 +14,7 @@
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/prevencion_riesgos" />
         <property name="username" value="root" />
-        <property name="password" value="" />
+        <property name="password" value="!Root1234" />
     </bean>
     <!-- Configuración de JPA -->
     <bean id="entityManagerFactory"
