@@ -61,11 +61,11 @@
 								<!-- Ciclo forEach con JSTL para imprimir datos de la lista -->
 								<c:forEach var="vis" items="${listaVisitas}">
 									<tr>
-										<td><c:out value="${vis.getRut_cliente()}"></c:out></td>
+										<td><c:out value="${vis.getCliente().getRut()}"></c:out></td>
 										<td><c:out value="${vis.getFecha_hora()}"></c:out></td>
 										<td><c:out value="${vis.getLugar()}"></c:out></td>
 										<td><c:out value="${vis.getComentarios()}"></c:out></td>
-										<td><c:out value="${vis.getProfesional_id()}"></c:out></td>
+										<td><c:out value="${vis.getProfesional().getId()}"></c:out></td>
 										<td>
 											<!-- Enviamos el id para visualizar los chequeos de la visita -->
 											<form action="responder-checklist" method="get">

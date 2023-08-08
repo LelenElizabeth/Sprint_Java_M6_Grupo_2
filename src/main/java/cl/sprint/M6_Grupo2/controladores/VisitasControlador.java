@@ -61,14 +61,14 @@ public class VisitasControlador {
 			@RequestParam("lugar") String lugar,
 			@RequestParam("comentarios")String comentarios){
 		
-		//Profesional profesional = prof.obtenerProfesional(profesional_id);
+		Profesional profesional = prof.obtenerProfesional(profesional_id);
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         LocalDateTime fecha_hora = LocalDateTime.parse(fecha, formatter);
-        //Cliente cliente = cliServ.obtenerCliente(cliente_id);
-        //int rut_cliente = cliente.getRut();
+        Cliente cliente = cliServ.obtenerCliente(cliente_id);
         
-        Visitas visita= new Visitas(cliente_id,fecha_hora,lugar,comentarios, profesional_id);
+        
+        Visitas visita= new Visitas(cliente,fecha_hora,lugar,comentarios, profesional);
 		vis.crearVisitas(visita);
         
         return new ModelAndView("crear-visita")
