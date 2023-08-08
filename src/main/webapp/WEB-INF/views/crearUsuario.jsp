@@ -37,7 +37,7 @@
 						
 				</div>
 				<div class="card-body">
-					<form action="crear-usuario" class="row" method="post">
+					<form action="crear-cliente" id="formulario" class="row" method="post">
 						<div class="col-md-6 mb-3">
 							<label for="nombre" class="form-label">Nombre</label> <input
 								type="text" class="form-control" name="nombre" required>
@@ -48,12 +48,84 @@
 						</div>
 						<div class="col-md-12 mb-3">
 							<label for="tipoLbl" class="form-label">Tipo</label> <select
-								class="form-control" name="rol" required>
+								class="form-control" name="rol" id="rol" required>
 								<option value="Cliente">Cliente</option>
 								<option value="Administrativo">Administrativo</option>
 								<option value="Profesional">Profesional</option>
 							</select>
 						</div>
+						 <!-- Formulario para el rol Cliente -->
+				        <div id="formularioCliente" style="display: none;">
+					        <h3>Datos del Cliente</h3>
+				            <div class="row">
+				            	<div class="col-md-5 mb-3">
+									<label for="nombres" class="form-label">Nombres</label> 
+									<input  type="text" class="form-control" name="nombreCliente" required>
+								</div>
+								<div class="col-md-5 mb-3">
+									<label for="apellidos" class="form-label">Apellidos</label> 
+									<input  type="text" class="form-control" name="apellidos" required>
+								</div>
+								<div class="col-md-2 mb-3">
+									<label for="edad" class="form-label">Edad</label> 
+									<input type="text" class="form-control" name="edad" required>
+								</div>
+								<div class="col-md-3 mb-3">
+									<label for="rut" class="form-label">Rut</label> 
+									<input  type="text"class="form-control" name="rut" required>
+								</div>
+								<div class="col-md-3 mb-3">
+									<label for="telefono" class="form-label">Telefono</label> 
+									<input  type="text" class="form-control" name="telefono" required>
+								</div>
+								<div class="col-md-3 mb-3">
+									<label for="direccion" class="form-label">Dirección</label> 
+									<input type="text" class="form-control" name="direccion" required>
+								</div>
+								<div class="col-md-3 mb-3">
+									<label for="comuna" class="form-label">Comuna</label> 
+									<input  type="text" class="form-control" name="comuna" required>
+								</div>
+				            </div>
+				        </div>
+				        
+				        <!-- Formulario para el rol Administrativo -->
+				        <div id="formularioAdministrativo" style="display: none;">
+				        	<h3>Datos del Administrativo</h3>
+				            <div class="row">
+								<div class="col-md-4 mb-3">
+									<label for="nombre" class="form-label">Nombre</label><input
+										type="text" class="form-control" name="nombreAdministrativo" required>
+								</div>
+								<div class="col-md-4 mb-3">
+									<label for="area" class="form-label">Area</label><input
+										type="text" class="form-control" name="area" required>
+								</div>
+								<div class="col-md-4 mb-3">
+									<label for="experienciaPrevia" class="form-label">Experiencia Previa</label><input
+										type="text" class="form-control" name="experienciaPrevia" required>
+								</div>
+				            </div>
+				        </div>
+				        
+				        <!-- Formulario para el rol Profesional -->
+				        <div id="formularioProfesional" style="display: none;">
+				       		<h3>Datos del Profesional</h3>
+				        	<div class="row">
+				        		<div class="col-md-4 mb-3">
+									<label for="nombre" class="form-label">Nombre</label><input
+										type="text" class="form-control" name="nombreProfesional" required>
+								</div>
+								<div class="col-md-4 mb-3">
+									<label for="titulo" class="form-label">Título</label><input
+										type="text" class="form-control" name="titulo" required>
+								</div>
+								<div class="col-md-4 mb-3">
+									<label for="fechaIngreso" class="form-label">Fecha de ingreso</label><input
+										type="text" class="form-control" name="fechaIngreso" >
+								</div>
+				        	</div>
+				        </div>
 						<div class="col-md-12">
 							<button type="submit" class="btn btn-secondary w-100 mt-4">Crear</button>
 						</div>
@@ -63,7 +135,9 @@
 		</div>
 	</main>
 	<%@ include file='footer.jsp'%>
-<!-- JavaScript Bootstrap -->
+	<!-- Script propio de la vista -->
+	<script src="<c:url value="/res/js/crearUsuario.js" />"></script>
+	<!-- JavaScript Bootstrap -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

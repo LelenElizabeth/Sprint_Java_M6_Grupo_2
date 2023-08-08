@@ -58,6 +58,17 @@ public class Cliente extends Usuario {
 		this.rut = rut;
 	}
 
+	public Cliente(String nombreUsuario,String contraseña, String nombres, String apellidos, int telefono, String direccion,
+			String comuna, int edad, int rut) {
+		super( nombreUsuario,contraseña, RolUsuario.Cliente);
+		this.nombres = nombres;
+		this.apellidos = apellidos;
+		this.telefono = telefono;
+		this.direccion = direccion;
+		this.comuna = comuna;
+		this.edad = edad;
+		this.rut = rut;
+	}
 	
 	public String getNombres() {
 		return nombres;
