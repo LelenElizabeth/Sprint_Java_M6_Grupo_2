@@ -32,3 +32,22 @@ body {
 .label{
 	padding-bottom: 8px;
 }
+
+/* Estilos para el navbar */
+.navbar {
+  position: fixed; /* Fijamos la posición del navbar */
+  top: 0; /* Lo posicionamos en la parte superior */
+  left: 0; /* Lo posicionamos en la parte izquierda */
+  width: 100%; /* Opcional: Ancho completo del navbar */
+  z-index: 1000; /* Asegura que el navbar esté por encima de otros elementos */
+}
+
+/* Estilos para el contenido principal */
+.content {
+  padding-top: 50px; /* Añade espacio en la parte superior para evitar que el contenido quede detrás del navbar */
+}
+.fondo {
+  background-color: rgba(0, 0, 0, 0.5); 
+  color: white; 
+  padding: 10px;
+}

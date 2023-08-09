@@ -8,6 +8,7 @@
 <title>Iniciar Sesión</title>
 <!-- CSS del proyecto -->
 <%@ include file='css-proyecto.jsp'%>
+</head>
 <body>
 
 	<!-- Incluyendo navbar -->
@@ -15,7 +16,7 @@
 	<!-- Menu activo -->
 	<%@ include file='navbar.jsp'%>
 
-	<main class="flex-shrink-0">
+	<main class="flex-shrink-0 content">
 		<div class="container mt-4">
 			<!-- Fomulario de login -->
 			<div class="row justify-content-center">

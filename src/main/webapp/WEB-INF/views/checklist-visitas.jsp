@@ -18,7 +18,7 @@
 	<!-- Texto Listar -->
 	<%@ include file='navbar.jsp'%>
 
-	<main class="flex-shrink-0">
+	<main class="flex-shrink-0 content">
 		<!--  Vista para mostrar las capacitaciones -->
 		<div class="container mt-4">
 			<div class="row">
