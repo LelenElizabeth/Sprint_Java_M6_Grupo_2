@@ -24,7 +24,7 @@
 	<%@ include file='navbar.jsp'%>
 
 	<div
-		class="container d-flex justify-content-center align-items-center mt-4">
+		class="container d-flex justify-content-center align-items-center mt-4 content">
 		<!-- Formulario para modificar un usuario -->
 		<div class="card" style="width: 50%;">
 			<div class="card-header bg-dark text-white">

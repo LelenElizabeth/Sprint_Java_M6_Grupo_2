@@ -11,14 +11,18 @@
 
 </head>
 <body>
-
-	<!-- Mensaje de exito -->
+	<main class="flex-shrink-0 content">
+	<!-- navbar -->
+	<%@include file="navbar.jsp"%>
+	<!-- Mensaje de error -->
 	<div class="container">
     	<div class="alert alert-danger mt-4">
 	    	<h4 class="alert-heading text-center fs-1">¡Error!</h4>
 			<p class="text-center">${mensaje}  
 		</div>
 	</div>
+	</main>
+	
 
 	<!-- JavaScript Bootstrap -->
 	<script

@@ -16,7 +16,7 @@
 	<%@ include file='navbar.jsp'%>
 	
 	<!-- Mensaje de exito -->
-	<div class="container">
+	<div class="container  content">
     	<div class="alert alert-info mt-4">
 	    	<h4 class="alert-heading text-center fs-1">¡Éxito!</h4>
 			<p class="text-center">${mensaje}  

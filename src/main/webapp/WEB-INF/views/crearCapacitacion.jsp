@@ -19,7 +19,7 @@
 	<!-- Texto Crear -->
 	<%@include file="navbar.jsp"%>
 
-	<main class="flex-shrink-0">
+	<main class="flex-shrink-0 content">
 		<div
 			class="container d-flex justify-content-center align-items-center mt-4">
 			

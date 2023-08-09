@@ -9,7 +9,6 @@
 <!-- Incluyendo estilos -->
 <%@include file="css-proyecto.jsp"%>
 <!-- Date timepicker -->
-<!-- Agrega los enlaces a las bibliotecas de Bootstrap y DateTimePicker -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
 
@@ -23,7 +22,7 @@
 	<!-- Texto Crear -->
 	<%@include file="navbar.jsp"%>
 
-	<main class="flex-shrink-0">
+	<main class="flex-shrink-0 content">
 		<div
 			class="container d-flex justify-content-center align-items-center mt-4">
 

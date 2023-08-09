@@ -291,7 +291,15 @@ CREATE TABLE `Usuarios` (
 
 LOCK TABLES `Usuarios` WRITE;
 /*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
-INSERT INTO `Usuarios` VALUES (1,'Juan','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Cliente'),(2,'María','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Cliente'),(3,'Carlos','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Cliente'),(4,'Pedro','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Administrativo'),(5,'Marta','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Administrativo'),(6,'Pablo','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Administrativo'),(7,'Gabriel','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Profesional'),(8,'Natalia','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Profesional'),(9,'Martín','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Profesional'),(10,'Jesu','1234','Administrativo'),(11,'Jesu','$2a$10$Rd6qaIuxItkcDNWIeO0a8OKk2.5N8RW6Wt7Wo1HuJq/WWxU4bEyT2','Administrativo'),(12,'Jesu','$2a$10$BN83IoGbj54zfcQlM0xqbefki2.C3BDpmEUfcOHFLjYdi98zzNyR.','Administrativo');
+INSERT INTO `Usuarios` VALUES (1,'Juan','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Cliente'),
+(2,'María','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Cliente'),
+(3,'Carlos','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Cliente'),
+(4,'Pedro','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Administrativo')
+,(5,'Marta','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Administrativo'),
+(6,'Pablo','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Administrativo'),
+(7,'Gabriel','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Profesional'),
+(8,'Natalia','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Profesional'),
+(9,'Martín','$2a$10$7lgm/idmFqa7zDdxKICTyeqyEvWb/7gqyRoDFfPgyh9OHDaw4K89K','Profesional');
 /*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 

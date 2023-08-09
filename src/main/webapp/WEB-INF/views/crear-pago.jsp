@@ -16,7 +16,7 @@
 	<!-- Incluyendo navbar menu -->
 	<%@include file="navbar.jsp"%>
 
-	<main class="flex-shrink-0">
+	<main class="flex-shrink-0 content">
 		<!-- Formulario de contacto -->
 		<div class="container mt-4">
 			<div class="row justify-content-center">
