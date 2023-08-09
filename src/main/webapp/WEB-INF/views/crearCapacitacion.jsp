@@ -47,8 +47,13 @@
 								name="nombre" required>
 						</div>
 						<div class="col-md-6 mb-3">
-							<label for="rut" class="form-label">RUT Cliente</label> <input
-								type="text" class="form-control" name="rutCliente" required>
+							<label for="rut" class="form-label">RUT Cliente</label>
+								<select class="form-control" id ="rutCliente"name="rutCliente" required>
+								<option value="" disabled selected>Selecciona Rut</option>
+								<c:forEach var="clienteCap" items="${listadoClientes}">
+								<option value="${clienteCap.rut}">${clienteCap.nombres} (Rut:${clienteCap.rut})</option>
+							</c:forEach>
+								</select>
 						</div>
 						<div class="col-md-4 mb-3">
 							<label for="dia" class="form-label">Día</label> <select

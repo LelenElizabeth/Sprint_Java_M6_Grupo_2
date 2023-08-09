@@ -3,7 +3,7 @@ function validarFormulario() {
 	// Obtener los valores de los campos del formulario
 	var nombre = document.querySelector('input[name="nombre"]').value;
 	var detalle = document.querySelector('textarea[name="detalle"]').value;
-	var rutCliente = document.querySelector('input[name="rutCliente"]').value;
+	//var rutCliente = document.querySelector('input[name="rutCliente"]').value;
 	var dia = document.querySelector('select[name="dia"]').value;
 	var hora = document.querySelector('input[name="hora"]').value;
 	var lugar = document.querySelector('input[name="lugar"]').value;
@@ -26,13 +26,13 @@ function validarFormulario() {
 		
 	}
 	
-	// Validar RUT cliente (obligatorio)
+	/*// Validar RUT cliente (obligatorio)
 	if (rutCliente.trim() === '') {
 		mostrarError('rutCliente','input', 'El RUT del cliente es obligatorio');
 		errores = true;
 	}else{
 		document.querySelector('input[name="rutCliente"]').style.borderColor = '';
-	}
+	}*/
 
 	// Validar día (debe ser un valor permitido entre "lunes" y "Domingo")
 	var diasPermitidos = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'];
